@@ -1,16 +1,12 @@
-django_metro
+django_metro : Delhi Metro DBMS project, with a web based frontend. Powered by Django Framework and Bootstrap.
 ============
 
-django project
+Build instructions:
 
-steps for building server-
+1. cd to django_metro (Project folder)
 
- cd Desktop
+2. source bin/activate
 
- cd django_metro
+3. cd mymtero
 
- source bin/activate
-
- cd mymtero
-
- python manage.py runserver
+4. python manage.py runserver
