@@ -16,3 +16,13 @@ Build instructions:
 3. cd mymtero
 
 4. python manage.py runserver
+
+
+==============
+
+issues persisiting-
+
+1.python library for interfacing with Mysql.
+2.working with forms.
+3.connecting the database.
+4.queries for processing requests.

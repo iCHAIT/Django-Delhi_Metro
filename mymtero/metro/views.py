@@ -1,4 +1,19 @@
 from django.shortcuts import render_to_response, RequestContext
+
+from metro.models import station
+
+from metro.models import facility
+
+from metro.models import places
+
+from metro.models import junction
+
+from metro.models import blog
+
+from metro.models import lostfound
+
+from metro.models import admin
+
 # Create your views here.
 
 def home(request):
@@ -20,5 +35,6 @@ def nearest(request):
     return render_to_response('nearest.html')
 
 def blog(request):
-    return render_to_response('blog.html')
+    entries = blog.objects.all()[:5]
+    return render_to_response('blog.html', {'blog' : entries})
 

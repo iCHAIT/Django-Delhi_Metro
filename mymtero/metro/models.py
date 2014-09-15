@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-'''class station(models.Model):
+class station(models.Model):
     sno = models.IntegerField()
     sname = models.CharField(max_length = 50)
     line = models.CharField(max_length = 15)
@@ -59,5 +59,3 @@ class admin(models.Model)
     email = models.EmailFoeld()
     password = models.CharField(max_length = 50)
 
-
-'''
