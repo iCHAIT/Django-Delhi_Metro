@@ -10,8 +10,6 @@ from metro.models import junction
 
 from metro.models import blog
 
-from metro.models import lostfound
-
 from metro.models import admin
 
 # Create your views here.

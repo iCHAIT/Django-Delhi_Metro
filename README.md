@@ -20,9 +20,19 @@ Build instructions:
 
 ==============
 
-issues persisiting-
+things that need to be done-
 
-1.python library for interfacing with Mysql.
-2.working with forms.
-3.connecting the database.
+1.working with forms.
+
+2.models.py not final yet(composite primary key issue,places table......)
+(once final we'll do syncdb to add all the tables to our database!!)
+
+3.Inserting values into Database.
+
+3.Connecting the database.
+
 4.queries for processing requests.
+
+5.Remove lost and found
+
+6.Add commenting feature
