@@ -36,3 +36,5 @@ things that need to be done-
 5.Remove lost and found
 
 6.Add commenting feature
+
+7.read south (if models are altered no need to drop tables and syncdb again,south can alter tables in the database directly.).
