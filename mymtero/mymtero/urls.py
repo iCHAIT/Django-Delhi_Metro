@@ -21,8 +21,6 @@ urlpatterns = patterns('',
                        
      url(r'^home/', 'metro.views.home', name='home'),
                        
-     url(r'^blog/', 'metro.views.blog', name='blog'),
-                       
                        
                        #uncomment the next 2 lines to enable admin
                        #     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

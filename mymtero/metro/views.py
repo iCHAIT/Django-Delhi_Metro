@@ -8,8 +8,6 @@ from metro.models import places
 
 from metro.models import junction
 
-from metro.models import blog
-
 from metro.models import admin
 
 # Create your views here.
@@ -32,7 +30,4 @@ def directions(request):
 def nearest(request):
     return render_to_response('nearest.html')
 
-def blog(request):
-    entries = blog.objects.all()[:5]
-    return render_to_response('blog.html', {'blog' : entries})
 
