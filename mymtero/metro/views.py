@@ -8,8 +8,6 @@ from metro.models import places
 
 from metro.models import junction
 
-from metro.models import admin
-
 # Create your views here.
 
 def home(request):
