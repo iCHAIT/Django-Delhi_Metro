@@ -33,17 +33,3 @@ class junction(models.Model):
     line2 = models.CharField(max_length = 15)
     sname = models.ForeignKey(station)
 
-class blog(models.Model):
-    bid = models.IntegerField(primary_key = True)
-    title = models.CharField(max_length = 100)
-    comments = models.TextField()
-    opening_date = models.DateField()
-    contact = models.BigIntegerField()
-
-
-class admin(models.Model):
-    aid = models.IntegerField(primary_key = True)
-    aname = models.CharField(max_length = 50)
-    email = models.EmailField()
-    password = models.CharField(max_length = 50)
-
