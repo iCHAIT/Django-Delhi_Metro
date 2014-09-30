@@ -20,25 +20,28 @@ Build instructions:
 
 ==============
 
-things that need to be done-
+Issues remaining-
 
-1.working with forms.
+1.Working with forms(Django templateing language).
 
-2.models.py not final yet(composite primary key issue,places table......)
-(once final we'll do syncdb to add all the tables to our database!!)
+2.Executing raw MySQL queries.
 
-3.Inserting values into Database.
+3.Routing
 
-3.Connecting the database.
+4.Front end to be updated
 
-4.queries for processing requests.
+5.saving value from forms into database.
 
-5.Remove lost and found
 
-6.Add commenting feature
 
-7.read south (if models are altered no need to drop tables and syncdb again,south can alter tables in the database directly.).
 
-8.New tables need to be registered
 
-9.blog to be removed
+
+
+
+
+
+
+
+
+
