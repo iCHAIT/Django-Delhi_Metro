@@ -1,8 +1,8 @@
 from django.shortcuts import render_to_response, RequestContext
 
-from .forms import EmailForm
+#from .forms import EmailForm
 
-from .models import Join
+#from .models import Join
 
 # Create your views here.
 
@@ -10,12 +10,11 @@ def home(request):
     
     return render_to_response('index.html')
 
-
 def about(request):
     #print request.POST["email"]
     
     #This is using regular django forms
-    
+    '''
     form = EmailForm(request.POST or None)#validation
         if form.is_valid():
             email = form.cleaned_data['email']
@@ -34,8 +33,8 @@ def about(request):
         
         context = {"form": form}
     return render_to_response('about.html', context, context_instance=RequestContext(request))
-
-#return render_to_response('about.html')
+'''
+    return render_to_response('about.html')
 
 def info(request):
     return render_to_response('info.html')
