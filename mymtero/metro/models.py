@@ -5,105 +5,60 @@ from django.contrib.auth.models import User
 
 
 class stationinfo(models.Model):
-    sid = models.IntegerField(primary_key = True)
-    sname = models.CharField(max_length = 50, null = False)
-    washroom = models.CharField(max_length = 5)
-    parking = models.CharField(max_length = 5)
-    elevator = models.CharField(max_length = 5)
+    CHOICES = (
+        ('Yes','Yes'),
+        ('No','No'),
+    
+    )
+    sid = models.AutoField(primary_key=True)
+    sname = models.CharField(max_length = 50)
+    washroom = models.CharField(max_length = 5,choices = CHOICES)
+    parking = models.CharField(max_length = 5,choices = CHOICES)
+    elevator = models.CharField(max_length = 5,choices = CHOICES)
     opening_date = models.DateField()
     contact = models.BigIntegerField()
-    pincode = models.BigIntegerField(null = False)
+    pincode = models.BigIntegerField()
+    cost = models.IntegerField()
+    pathid = models.IntegerField()
+    calculated = models.IntegerField()
     def __str__(self):
         return self.sname
 
 class station(models.Model):
-    statname = models.CharField(max_length = 50,null = False)
-    line = models.CharField(max_length = 15,null = False)
-    grade = models.CharField(max_length = 15,null = False)
-    sid = models.ForeignKey('stationinfo',to_field = 'sid')
-    def __str__(self):
-        return self.statname
-
-
-class places(models.Model):
-    statname = models.CharField(max_length = 50,null = False)
-    place = models.CharField(max_length = 75,null = False)
-    sid = models.ForeignKey('stationinfo',to_field = 'sid')
-    def __str__(self):
-        return self.statname
-
-
-class review(models.Model):
-    statname = models.CharField(max_length = 50)
-    title = models.CharField(max_length = 50)
-    timest = models.DateTimeField()
-    author = models.CharField(max_length = 50)
-    bodytext = models.TextField()
-    sid = models.ForeignKey('stationinfo',to_field = 'sid')
+    sno = models.AutoField(primary_key=True)
+    sname = models.CharField(max_length = 50)
+    line = models.CharField(max_length = 15)
+    grade = models.CharField(max_length = 15)
     def __str__(self):
         return self.sname
 
-class validpath(models.Model):
-    sid1 = models.IntegerField()
-    sid2 = models.IntegerField()
+
+class places(models.Model):
+    pid = models.AutoField(primary_key=True)
+    sname = models.CharField(max_length = 50)
+    place = models.CharField(max_length = 75)
+    def __str__(self):
+        return self.sname
+
+
+class path(models.Model):
+    pathid = models.AutoField(primary_key=True)
+    fromsid = models.ForeignKey(stationinfo, related_name = 'fromsid_set')
+    tosid = models.ForeignKey('stationinfo', related_name = 'tosid_set')
     cost = models.IntegerField()
 
-'''
-class stationinfo(models.Model):
-    sname = models.CharField(max_length = 50,primary_key = True)
-    washroom = models.CharField(max_length = 5)
-    parking = models.CharField(max_length = 5)
-    elevator = models.CharField(max_length = 5)
-    opening_date = models.DateField()
-    contact = models.BigIntegerField()
-    def __str__(self):
-        return self.sname
 
-class station(models.Model):
-    sno = models.IntegerField()
-    statname = models.CharField(max_length = 50,null = False)
-    line = models.CharField(max_length = 15,null = False)
-    pincode = models.BigIntegerField()
-    grade = models.CharField(max_length = 15)
-    sname = models.ForeignKey('stationinfo',to_field = 'sname')
-    class Meta:
-        unique_together = (('statname','line'))
-    def __str__(self):
-        return self.statname
-
-
-class places(models.Model):
-    statname = models.CharField(max_length = 50)
-    place = models.CharField(max_length = 75)
-    sname = models.ForeignKey('stationinfo',to_field = 'sname')
-    def __str__(self):
-        return self.statname
-
-
-class junction(models.Model):
-    statname = models.CharField(max_length = 50,primary_key = True)
-    line1 = models.CharField(max_length = 15)
-    line2 = models.CharField(max_length = 15)
-    sname = models.ForeignKey('stationinfo',to_field = 'sname')
-    def __str__(self):
-        return self.statname
 
 
 class review(models.Model):
+    rid = models.AutoField(primary_key = True)
     sname = models.CharField(max_length = 50)
     title = models.CharField(max_length = 50)
-    timest = models.DateTimeField()
     author = models.CharField(max_length = 50)
+    timest = models.DateTimeField()
     bodytext = models.TextField()
     def __str__(self):
         return self.sname
-
-class Join(models.Model):
-    email = models.EmailField()
-    timestamp = models.DateTimeField()
-    updated = models.DateTimeField()
-'''
-
 
 
 

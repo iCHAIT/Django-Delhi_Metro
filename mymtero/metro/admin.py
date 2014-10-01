@@ -1,28 +1,30 @@
 from django.contrib import admin
 
-
-from metro.models import station
 from metro.models import stationinfo
+from metro.models import station
 from metro.models import places
 from metro.models import review
-from metro.models import validpath
+
+
 #from metro.models import Join
 
 
 
 class stationinfoAdmin(admin.ModelAdmin):
-    list_display = ('sname','washroom','parking','elevator','contact','opening_date','pincode')
+    #    list_filter = ('sname', 'pincode')
+    list_display = ('sname','washroom','parking','elevator','opening_date','contact','pincode')
     search_fields = ['sname']
+    exclude = ('cost','pathid','calculated',)
 
 
 class stationAdmin(admin.ModelAdmin):
-    list_display = ('statname', 'line', 'grade',)
-    search_fields = ['statname']
+    list_display = ('sname', 'line', 'grade',)
+    search_fields = ['sname']
 
 
 class placesAdmin(admin.ModelAdmin):
-    list_display = ('statname', 'place',)
-    search_fields = ['statsname']
+    list_display = ('sname', 'place',)
+    search_fields = ['sname']
 
 
 
