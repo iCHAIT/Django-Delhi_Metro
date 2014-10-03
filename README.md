@@ -1,4 +1,4 @@
-django_metro
+Django_Metro
 ============
 Delhi Metro DBMS project, with a web based frontend. Powered by Django Framework and Bootstrap.
 
@@ -18,9 +18,8 @@ Build instructions:
 4. python manage.py runserver
 
 
+Remaining Issues-
 ==============
-
-Issues remaining-
 
 1.Working with forms(Django templateing language).
 
@@ -30,7 +29,7 @@ Issues remaining-
 
 4.Front end to be updated
 
-5.saving value from forms into database.
+5.Saving value from forms into database.
 
 
 

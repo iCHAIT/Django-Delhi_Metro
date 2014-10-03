@@ -13,8 +13,9 @@ from metro.models import review
 class stationinfoAdmin(admin.ModelAdmin):
     #    list_filter = ('sname', 'pincode')
     list_display = ('sname','washroom','parking','elevator','opening_date','contact','pincode')
-    search_fields = ['sname']
+    search_fields = ('sname',)
     exclude = ('cost','pathid','calculated',)
+#list_filter = ()
 
 
 class stationAdmin(admin.ModelAdmin):

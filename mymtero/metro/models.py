@@ -18,17 +18,20 @@ class stationinfo(models.Model):
     opening_date = models.DateField()
     contact = models.BigIntegerField()
     pincode = models.BigIntegerField()
-    cost = models.IntegerField()
-    pathid = models.IntegerField()
-    calculated = models.IntegerField()
+    cost = models.CharField(max_length = 5,null=True,blank=True)
+    pathid = models.CharField(max_length = 5,null=True,blank=True)
+    calculated = models.CharField(max_length = 5,null=True,blank=True)
     def __str__(self):
         return self.sname
+    class Meta:
+        verbose_name_plural = "stationinfo"
 
 class station(models.Model):
     sno = models.AutoField(primary_key=True)
     sname = models.CharField(max_length = 50)
     line = models.CharField(max_length = 15)
     grade = models.CharField(max_length = 15)
+    sid = models.ForeignKey('stationinfo', to_field = 'sid')
     def __str__(self):
         return self.sname
 
@@ -37,17 +40,16 @@ class places(models.Model):
     pid = models.AutoField(primary_key=True)
     sname = models.CharField(max_length = 50)
     place = models.CharField(max_length = 75)
+    sid = models.ForeignKey('stationinfo', to_field = 'sid')
     def __str__(self):
         return self.sname
 
 
 class path(models.Model):
     pathid = models.AutoField(primary_key=True)
-    fromsid = models.ForeignKey(stationinfo, related_name = 'fromsid_set')
+    fromsid = models.ForeignKey('stationinfo', related_name = 'fromsid_set')
     tosid = models.ForeignKey('stationinfo', related_name = 'tosid_set')
     cost = models.IntegerField()
-
-
 
 
 class review(models.Model):
