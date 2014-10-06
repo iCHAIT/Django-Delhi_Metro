@@ -126,6 +126,13 @@
           </div>
       </div>
 
+
+  <form method="POST" action="">{% csrf_token %}
+  {{ form.as_p }}
+<input type='submit' value='join' class='btn' /> 
+
+  </form>
+
       <hr class="featurette-divider">
 
       <div class="row featurette">

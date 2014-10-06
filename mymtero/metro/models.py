@@ -32,8 +32,10 @@ class station(models.Model):
     line = models.CharField(max_length = 15)
     grade = models.CharField(max_length = 15)
     sid = models.ForeignKey('stationinfo', to_field = 'sid')
-    def __str__(self):
-        return self.sname
+    def __int__(self):
+        return self.sid
+    class Meta:
+        verbose_name_plural = "station"
 
 
 class places(models.Model):
@@ -41,8 +43,10 @@ class places(models.Model):
     sname = models.CharField(max_length = 50)
     place = models.CharField(max_length = 75)
     sid = models.ForeignKey('stationinfo', to_field = 'sid')
-    def __str__(self):
-        return self.sname
+    def __int__(self):
+        return self.sid
+    class Meta:
+        verbose_name_plural = "places"
 
 
 class path(models.Model):
@@ -61,6 +65,10 @@ class review(models.Model):
     bodytext = models.TextField()
     def __str__(self):
         return self.sname
+
+class dist(models.Model):
+    start = models.CharField(max_length = 50)
+    end = models.CharField(max_length = 50)
 
 
 

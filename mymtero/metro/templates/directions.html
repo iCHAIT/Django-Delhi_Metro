@@ -109,7 +109,14 @@
 <div class="container">
     <div class="row">
 		<h2>Directions</h2>
-			
+
+
+  <form method="POST" action="">{% csrf_token %}
+  {{ form.as_p }}
+<input type='submit' value='join' class='btn' /> 
+
+  </form>
+			<!--
 		<form role="form" class="col-lg-6 go-right">
             <br><br>
 			<p>Enter Metro Station you want to board from:</p>
@@ -126,7 +133,7 @@
 			<p style = "text-align:center">
 			<button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i>   Search</button>
 			</p>
-		</form>
+		</form>-->
 		<img src="/static/img/shadab.jpg" class="img-thumbnail" alt="Metro Map">
         </div>
 		
