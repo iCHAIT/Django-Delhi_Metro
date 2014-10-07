@@ -26,6 +26,7 @@ class stationinfo(models.Model):
     class Meta:
         verbose_name_plural = "stationinfo"
 
+
 class station(models.Model):
     sno = models.AutoField(primary_key=True)
     sname = models.CharField(max_length = 50)
