@@ -84,15 +84,15 @@ def nearest(request):
             cursor = connection.cursor()
             cursor.execute("SELECT sname from metro_facility where pincode = '"+ pincode +"'")
             data = cursor.fetchall()
-            for i in data:
-                print i
         if info == 'near':
             place = form.cleaned_data['place']
             cursor = connection.cursor()
             cursor.execute("SELECT sname from metro_places where pname = '" + place +"'")
             data = cursor.fetchall()
-                for i in data:
-                print i
+        for i in data:
+            print i
+    context = {"form": form}
+    template = "nearest.html"
     return render(request, template, context)
 
 

@@ -15,4 +15,4 @@ class reviewForm(forms.Form):
 
 class nearForm(forms.Form):
     place = forms.CharField(required = False)
-    pincode = forms.BigIntegerField(required = False)
+    pincode = forms.IntegerField(required = False)
