@@ -34,15 +34,25 @@ def info(request):
         statname = form.cleaned_data['statname']
         cursor = connection.cursor()
         cursor.execute("SELECT distinct sname from metro_stationinfo")
-        abcd = cursor.fetchall()
-        for i in abcd:
+        data = cursor.fetchall()
+        for i in data:
             print i
     context = {"form": form}
     template = "info.html"
     return render(request, template, context)
 
 def review(request):
-    return render_to_response('review.html')
+    form = reviewForm(request POST or None)
+    if form.is_valid():
+        statname = form.cleaned_data['statname']
+        cursor = connection().cursor()
+        cursor.execute("SELECT distinct sname from metro_stationinfo")
+        data = cursor.fetchall()
+        for i in data:
+            print i
+    context = {"form": form}
+    template = "review.html"
+    return render(request, template, context)
 
 
 def directions(request):

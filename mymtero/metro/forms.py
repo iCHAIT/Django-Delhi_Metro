@@ -9,3 +9,6 @@ class distForm(forms.Form):
 
 class infoForm(forms.Form):
     statname = forms.CharField()
+
+class reviewForm(forms.Form):
+    statname = forms.CharField()
