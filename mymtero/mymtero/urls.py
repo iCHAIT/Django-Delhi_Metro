@@ -11,23 +11,25 @@ urlpatterns = patterns('',
                        # Examples:
                        url(r'^$', 'metro.views.home', name='home'),
                        
-                       url(r'^about/', 'metro.views.about', name='about'),
-                       
-                       url(r'^info/', 'metro.views.info', name='info'),
+                       url(r'^home/', 'metro.views.home', name='home'),
                        
                        url(r'^directions/', 'metro.views.directions', name='directions'),
                        
-                       url(r'^nearest/', 'metro.views.nearest', name='nearest'),
-                       
-                       url(r'^home/', 'metro.views.home', name='home'),
-                       
-                       url(r'^review/','metro.views.review', name='review'),
-                       
-                       
                        url(r'^directions2/', 'metro.views.directions2', name='directions2'),
+                       
+                       url(r'^info/', 'metro.views.info', name='info'),
                        
                        url(r'^info2/', 'metro.views.info2', name='info2'),
                        
+                       url(r'^nearest/', 'metro.views.nearest', name='nearest'),
+                       
+                       url(r'^nearest2/', 'metro.views.nearest2', name='nearest2'),
+                       
+                       url(r'^review/','metro.views.review', name='review'),
+                       
+                       url(r'^review2/','metro.views.review2', name='review2'),
+                       
+                       url(r'^about/', 'metro.views.about', name='about'),
                        
                        
                        #uncomment the next 2 lines to enable admin
