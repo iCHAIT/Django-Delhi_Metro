@@ -21,26 +21,26 @@ class stationinfoAdmin(admin.ModelAdmin):
 
 class stationAdmin(admin.ModelAdmin):
     list_display = ('sname', 'line', 'grade')
-    search_fields = ['sname']
-    exclude = ('sid')
-    list_filter = ('sname')
+    search_fields = ('sname',)
+    exclude = ('sid',)
+    list_filter = ('sname',)
 
 
 class placesAdmin(admin.ModelAdmin):
     list_display = ('sname', 'place')
-    search_fields = ['sname']
-    exclude = ('sid')
-    list_filter = ('sname')
+    search_fields = ('sname',)
+    exclude = ('sid',)
+    list_filter = ('sname',)
 
 class pathAdmin(admin.ModelAdmin):
     list_display = ('pathid', 'fromsid', 'tosid')
-    search_fields = ['pathid']
-    list_filter = ('pathid')
+    search_fields = ('pathid',)
+    list_filter = ('pathid',)
 
 class reviewAdmin(admin.ModelAdmin):
     list_display = ('sname', 'author', 'timest')
-    search_fields = ['sname']
-    list_filter = ('sname')
+    search_fields = ('sname',)
+    list_filter = ('sname',)
 
 
 
