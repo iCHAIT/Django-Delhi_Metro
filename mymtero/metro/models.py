@@ -24,7 +24,7 @@ class stationinfo(models.Model):
     def __str__(self):
         return self.sname
     class Meta:
-        verbose_name_plural = "stationinfo"
+        verbose_name_plural = "Stationinfo"
 
 
 class station(models.Model):
@@ -33,10 +33,10 @@ class station(models.Model):
     line = models.CharField(max_length = 15)
     grade = models.CharField(max_length = 15)
     sid = models.ForeignKey('stationinfo', to_field = 'sid')
-    def __int__(self):
-        return self.sid
+    def __str__(self):
+        return self.sname
     class Meta:
-        verbose_name_plural = "station"
+        verbose_name_plural = "Station"
 
 
 class places(models.Model):
@@ -44,10 +44,10 @@ class places(models.Model):
     sname = models.CharField(max_length = 50)
     place = models.CharField(max_length = 75)
     sid = models.ForeignKey('stationinfo', to_field = 'sid')
-    def __int__(self):
-        return self.sid
+    def __str__(self):
+        return self.sname
     class Meta:
-        verbose_name_plural = "places"
+        verbose_name_plural = "Places"
 
 
 class path(models.Model):
@@ -65,8 +65,9 @@ class review(models.Model):
     timest = models.DateTimeField()
     bodytext = models.TextField()
     def __str__(self):
-        return self.sname
-
+        return self.title
+    class Meta:
+        verbose_name_plural = "Review"
 
 
 class dir(models.Model):

@@ -22,27 +22,38 @@ class stationinfoAdmin(admin.ModelAdmin):
 class stationAdmin(admin.ModelAdmin):
     list_display = ('sname', 'line', 'grade')
     search_fields = ['sname']
+    exclude = ('sid')
+    list_filter = ('sname')
 
 
 class placesAdmin(admin.ModelAdmin):
     list_display = ('sname', 'place')
     search_fields = ['sname']
+    exclude = ('sid')
+    list_filter = ('sname')
 
+class pathAdmin(admin.ModelAdmin):
+    list_display = ('pathid', 'fromsid', 'tosid')
+    search_fields = ['pathid']
+    list_filter = ('pathid')
+
+class reviewAdmin(admin.ModelAdmin):
+    list_display = ('sname', 'author', 'timest')
+    search_fields = ['sname']
+    list_filter = ('sname')
 
 
 
 
 # Register your models here.
-admin.site.register(stationinfo)
+
+admin.site.register(stationinfo, stationinfoAdmin)
 
 admin.site.register(station, stationAdmin)
 
 admin.site.register(places, placesAdmin)
 
-admin.site.register(path)
+admin.site.register(path, pathAdmin)
 
-admin.site.register(review)
+admin.site.register(review, reviewAdmin)
 
-#admin.site.register(review)
-
-#admin.site.register()
