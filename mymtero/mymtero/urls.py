@@ -24,6 +24,9 @@ urlpatterns = patterns('',
                        url(r'^review/','metro.views.review', name='review'),
                        
                        
+                       url(r'^directions2/', 'metro.views.directions2', name='directions2'),
+                       
+                       
                        
                        #uncomment the next 2 lines to enable admin
                        url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

@@ -8,18 +8,6 @@
     <meta name="author" content="">
     <link rel="icon" href="/static/img/icon.ico">
 
-    <script type="text/javascript" src="/static/js/jquery.js"></script>
-<script type="text/javascript" src="/static/js/select2.js"></script>
-
- <link href="/static/css/select2.css" rel="stylesheet"/>
-    <script src="/static/js/select2.js"></script>
-    <script>
-        $(document).ready(function() {
-        $("#e1").select2();
-        });
-
-    </script>
-
     <title>Station Information</title>
 
     <!-- Bootstrap core CSS -->
@@ -73,24 +61,41 @@
    </div>
 
 <div class="container">
-<div class="row">
-<h3>Station Information</h3>
-<div class="col-md-6">
-  <form role="form" class="col-md-9 go-right" action="/info2" method="post">
-    <p>Enter the station you want information for: </p>
-    <select id="e1" name="stat_name">
-        {% for i in 'data:' %}
-        <option value="{{ 'i[0]' }}">{{ 'i[0]' }}</option>
+    <div class="row">
+		<h2>Station Information</h2>
+			<br/><br/>
+      <h5>Station name: {{ infor[1] }}</h5>
+      <h5>Washroom Available: {{ infor[2] }}</h5>
+      <h5>Parking Available: {{ infor[3] }}</h5>
+      <h5>Elevator: {{ infor[4] }}</h5>
+      <h5>Opening Date: {{ infor[5] }}</h5>
+      <h5>Contact No.: {{ infor[6] }}</h5>
+      <h5>Pincode: {{ infor[7] }}</h5>
+        <h5>Places nearby:</h5>
+        {% for i in informa: %}
+          <p></p>{{ i[0] }}</p>
         {% endfor %}
-    </select>
+      <div class="col-md-6">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Line</th>
+              <th>Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in inform: %}
+            <tr>
+              <td>{{ i[2] }}</td>
+              <td>{{ i[3] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
 
-    <p style = "text-align:center">
-      <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
-    </p>
-  </form>
-</div>
-</div>
-</div>
 
 <div class="container">
 		<hr>
@@ -110,6 +115,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
     <script src="/static/js/docs.min.js"></script>
 	<script src="/static/js/car.js"></script>

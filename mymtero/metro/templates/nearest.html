@@ -83,8 +83,8 @@
   <form role="form" class="col-md-9 go-right" action="near">
     <p>Enter a famous place nearby: </p>
     <select id="e2" name="by">
-        {% for i in names: %}
-        <option value="{{ i[0] }}">{{ i[0] }}</option>
+        {% for i in 'names:' %}
+        <option value="{{ 'i[0]' }}">{{ 'i[0]' }}</option>
         {% endfor %}
     </select>
 
@@ -98,8 +98,8 @@
   <form role="form" class="col-md-9 go-right" action="pin">
     <p>Enter your pincode: </p>
     <select id="e1" name="code">
-        {% for i in data: %}
-        <option value="{{ i[0] }}">{{ i[0] }}</option>
+        {% for i in 'data:' %}
+        <option value="{{ "i[0]" }}">{{ "i[0]" }}</option>
         {% endfor %}
     </select>
     <br>

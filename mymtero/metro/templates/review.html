@@ -86,8 +86,8 @@
 		<form role="form" class="col-md-9" action="/review2">
             <p>Enter Station Name for which you want to view reviews:</p>
 			<select id="e2" name="stat_name">
-        {% for i in data: %}
-        <option value="{{ i[0] }}">{{ i[0] }}</option>
+        {% for i in 'data:' %}
+        <option value="{{ 'i[0]' }}">{{ 'i[0]' }}</option>
         {% endfor %}
     </select>
 			<p style = "text-align:center">
@@ -100,8 +100,8 @@
         <form role="form" class="col-md-9" method="post">
             <p>Enter Station Name:</p>
         <select id="e1" name="stat">
-        {% for i in data: %}
-        <option value="{{ i[0] }}">{{ i[0] }}</option>
+        {% for i in 'data:' %}
+        <option value="{{ 'i[0]' }}">{{ 'i[0]' }}</option>
         {% endfor %}
         </select>
       <p><br>Enter Title</p>

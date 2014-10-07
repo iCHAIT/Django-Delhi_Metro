@@ -50,6 +50,10 @@ def directions(request):
     template = "directions.html"
     return render(request, template, context)
 
+
+def directions2(request):
+    return render_to_response('directions2.html')
+
 def nearest(request):
     return render_to_response('nearest.html')
 
