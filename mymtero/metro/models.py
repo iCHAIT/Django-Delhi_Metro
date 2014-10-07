@@ -66,9 +66,9 @@ class review(models.Model):
     def __str__(self):
         return self.sname
 
-class dist(models.Model):
-    start = models.CharField(max_length = 50)
-    end = models.CharField(max_length = 50)
+class dir(models.Model):
+    source = models.CharField(max_length = 50)
+    dest = models.CharField(max_length = 50)
 
 
 

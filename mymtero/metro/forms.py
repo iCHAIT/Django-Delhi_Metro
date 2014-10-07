@@ -1,11 +1,11 @@
 from django import forms
 
-from .models import dist
+from .models import dir
 
 
-class distForm(forms.Form):
-    start = forms.CharField()
-    end = forms.CharField()
+class dirForm(forms.Form):
+    source = forms.CharField()
+    dest = forms.CharField()
 
 class infoForm(forms.Form):
     statname = forms.CharField()
