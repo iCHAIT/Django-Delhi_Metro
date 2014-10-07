@@ -22,19 +22,21 @@ Build instructions:
 Remaining Issues-
 ==============
 
-1.Basic Django errors
+1.Basic Django errors(models.py,admin.py,forms.py,urls.py,views.py)
 
-2.Tables in tha database not updated(path table)
+2.Tables in tha database not updated(path table).
 
-3.Use of django templating language in *.html
+3.Use of django templating language in *.html.
 
-4.Testing of project(for existing stations,lines)
+4.Testing of project(for existing stations,lines).
+
+5. Discuss the order of attributes of every class in models.py. 
 
 
 Note
 ====
 
-Django version 1.6.5 has been used for the project!!
+The project is running on Django version 1.6.5 !!
 
 
 
