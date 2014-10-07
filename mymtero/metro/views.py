@@ -2,7 +2,13 @@ from django.shortcuts import render,render_to_response, RequestContext
 from django.core.context_processors import csrf
 from django.db import connection
 
-from .forms import distForm
+from .forms import dirForm
+
+from .forms import infoForm
+
+from .forms import nearForm
+
+from .forms import revForm
 
 
 # Create your views here.
@@ -106,7 +112,7 @@ def nearest2(request):
 
 
 def review(request):
-    form = reviewForm(request.POST or None)
+    form = revForm(request.POST or None)
     if form.is_valid():
         statname = form.cleaned_data['statname']
         cursor = connection().cursor()
@@ -120,6 +126,16 @@ def review(request):
 
 
 def review2(request):
+    form = revForm(request.POST or None)
+    if form.is_valid():
+        statname = form.cleaned_data['statname']
+        cursor = connection.cursor()
+        cursor.execute("SELECT title,author,timest,bodytext from reviews where sname = '"+ name +"'")
+        data = cursor.fetchall()
+        for i in data:
+            print i
+    context = {"form": form}
+    template = "review2.html"
     return render_to_response('review2.html')
 
 

@@ -70,6 +70,15 @@ class dir(models.Model):
     source = models.CharField(max_length = 50)
     dest = models.CharField(max_length = 50)
 
+class info(models.Model):
+    statname = models.CharField(max_length = 50)
+
+class near(models.Model):
+    place = models.CharField(max_length = 75)
+    pin = models.BigIntegerField()
+
+class rev(models.Model):
+    statname = models.CharField(max_length = 50)
 
 
 
