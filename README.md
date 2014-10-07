@@ -1,5 +1,6 @@
 Django_Metro
 ============
+
 Delhi Metro DBMS project, with a web based frontend. Powered by Django Framework and Bootstrap.
 
 Requirements:
@@ -21,16 +22,19 @@ Build instructions:
 Remaining Issues-
 ==============
 
-1.Working with forms(Django templateing language).
+1.Basic Django errors
 
-2.Executing raw MySQL queries.
+2.Tables in tha database not updated(path table)
 
-3.Routing
+3.Use of django templating language in *.html
 
-4.Front end to be updated
+4.Testing of project(for existing stations,lines)
 
-5.Saving value from forms into database.
 
+Note
+====
+
+Django version 1.6.5 has been used for the project!!
 
 
 
