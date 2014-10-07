@@ -29,14 +29,23 @@ def about(request):
     return render_to_response('about.html')
 
 def info(request):
-    return render_to_response('info.html')
+    form = infoForm(request POST or None)
+    if form.is_valid():
+        statname = form.cleaned_data['statname']
+        cursor = connection.cursor()
+        cursor.execute("SELECT distinct sname from metro_stationinfo")
+        abcd = cursor.fetchall()
+        for i in abcd:
+            print i
+    context = {"form": form}
+    template = "info.html"
+    return render(request, template, context)
 
 def review(request):
     return render_to_response('review.html')
 
 
 def directions(request):
-    
     form = distForm(request.POST or None)
     if form.is_valid():
         start = form.cleaned_data['start']

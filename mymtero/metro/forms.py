@@ -7,3 +7,5 @@ class distForm(forms.Form):
     start = forms.CharField()
     end = forms.CharField()
 
+class infoForm(forms.Form):
+    statname = forms.CharField()
