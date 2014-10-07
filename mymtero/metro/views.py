@@ -54,6 +54,9 @@ def directions(request):
 def directions2(request):
     return render_to_response('directions2.html')
 
+def info2(request):
+    return render_to_response('info2.html')
+
 def nearest(request):
     return render_to_response('nearest.html')
 
