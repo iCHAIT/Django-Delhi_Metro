@@ -17,7 +17,7 @@ def about(request):
         email =  form.cleaned_data['email']
         new_join, created = Join.objects.get_or_create(email=email)
         print new_join, created
-        '''
+        
     form = abcForm(request.POST or None)
     if form.is_valid():
         new_abc = form.save(commit=False)
@@ -25,10 +25,14 @@ def about(request):
 
     context = {"form": form}
     template = "about.html"
-    return render(request, template, context)
+    '''
+    return render_to_response('about.html')
 
 def info(request):
     return render_to_response('info.html')
+
+def review(request):
+    return render_to_response('review.html')
 
 
 def directions(request):

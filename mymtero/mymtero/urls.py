@@ -21,6 +21,8 @@ urlpatterns = patterns('',
                        
                        url(r'^home/', 'metro.views.home', name='home'),
                        
+                       url(r'^review/','metro.views.review', name='review'),
+                       
                        
                        
                        #uncomment the next 2 lines to enable admin
