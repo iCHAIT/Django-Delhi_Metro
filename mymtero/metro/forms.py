@@ -12,3 +12,7 @@ class infoForm(forms.Form):
 
 class reviewForm(forms.Form):
     statname = forms.CharField()
+
+class nearForm(forms.Form):
+    place = forms.CharField(required = False)
+    pincode = forms.BigIntegerField(required = False)

@@ -29,7 +29,7 @@ def about(request):
     return render_to_response('about.html')
 
 def info(request):
-    form = infoForm(request POST or None)
+    form = infoForm(request.POST or None)
     if form.is_valid():
         statname = form.cleaned_data['statname']
         cursor = connection.cursor()
@@ -42,7 +42,7 @@ def info(request):
     return render(request, template, context)
 
 def review(request):
-    form = reviewForm(request POST or None)
+    form = reviewForm(request.POST or None)
     if form.is_valid():
         statname = form.cleaned_data['statname']
         cursor = connection().cursor()
@@ -77,6 +77,22 @@ def info2(request):
     return render_to_response('info2.html')
 
 def nearest(request):
-    return render_to_response('nearest.html')
+    form = nearForm(request.POST or None)
+    if form.is_valid():
+        if info == 'pin':
+            pincode = form.cleaned_data['pincode']
+            cursor = connection.cursor()
+            cursor.execute("SELECT sname from metro_facility where pincode = '"+ pincode +"'")
+            data = cursor.fetchall()
+            for i in data:
+                print i
+        if info == 'near':
+            place = form.cleaned_data['place']
+            cursor = connection.cursor()
+            cursor.execute("SELECT sname from metro_places where pname = '" + place +"'")
+            data = cursor.fetchall()
+                for i in data:
+                print i
+    return render(request, template, context)
 
 
