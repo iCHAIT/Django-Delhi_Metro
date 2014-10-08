@@ -34,6 +34,8 @@ Remaining Issues-
 
 6.Admin login option to be handled.
 
+working on error global form not defined in views.py in *2.html
+
 
 Note
 ====
