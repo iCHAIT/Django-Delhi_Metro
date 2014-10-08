@@ -32,6 +32,8 @@ Remaining Issues-
 
 5. Discuss the order of attributes of every class in models.py. 
 
+6.Admin login option to be handled.
+
 
 Note
 ====
