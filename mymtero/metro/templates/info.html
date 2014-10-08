@@ -77,7 +77,7 @@
 <h3>Station Information</h3>
 <div class="col-md-6">
 
-  <form method="POST" action="/info2/">
+  <form method="POST" action="/info2/">{% csrf_token %}
   {{ form.as_p }}
 <input type='submit' value='join' class='btn' /> 
   <!--form role="form" class="col-md-9 go-right" action="/info2" method="post">

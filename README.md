@@ -22,19 +22,15 @@ Build instructions:
 Remaining Issues-
 ==============
 
-1.Basic Django errors(models.py,admin.py,forms.py,urls.py,views.py)
+1.In nearest page pincode form not working!
 
-2.Tables in tha database not updated(path table).
+2.Review forms not working
 
-3.Use of django templating language in *.html.
+3.Dropdown option for Front end forms.
 
-4.Testing of project(for existing stations,lines).
+4.Include css,text for forms
 
-5. Discuss the order of attributes of every class in models.py. 
-
-6.Admin login option to be handled.
-
-working on error global form not defined in views.py in *2.html
+5.Testing of project(for existing stations,lines).
 
 
 Note

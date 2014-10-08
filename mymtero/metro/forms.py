@@ -19,7 +19,7 @@ class dirForm(forms.Form):
 
 
 class infoForm(forms.Form):
-    statname = forms.CharField()
+    sname = forms.CharField()
 
 
 class near1Form(forms.Form):
@@ -30,10 +30,10 @@ class near2Form(forms.Form):
 
 
 class rev1Form(forms.Form):
-    statname = forms.CharField()
+    sname = forms.CharField()
 
 class rev2Form(forms.Form):
-    statname = forms.CharField()
+    sname = forms.CharField()
     title = forms.CharField()
     bodytext = forms.CharField()
     author = forms.CharField()

@@ -64,11 +64,20 @@
 			<br/><br/>
       <h4>Stations closest are:</h4>
       </br>
+      {% if data2 == None %}
 		<div class="col-md-6">
-		  {% for i in stations: %}
-        <p>{{ i[0] }} </p>
+		  {% for i in data1 %}
+        <p>{{ i.0 }} </p>
       {% endfor %}
 		</div>
+    {% endif %}
+    {% if data1 == None %}
+    <div class="col-md-6">
+      {% for i in data2 %}
+        <p>{{ i.0 }} </p>
+      {% endfor %}
+      {% endif %}
+    </div>
 	</div>
 </div>
 

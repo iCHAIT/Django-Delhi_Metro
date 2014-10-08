@@ -64,16 +64,16 @@
     <div class="row">
 		<h2>Station Information</h2>
 			<br/><br/>
-      <h5>Station name: {{ infor[1] }}</h5>
-      <h5>Washroom Available: {{ infor[2] }}</h5>
-      <h5>Parking Available: {{ infor[3] }}</h5>
-      <h5>Elevator: {{ infor[4] }}</h5>
-      <h5>Opening Date: {{ infor[5] }}</h5>
-      <h5>Contact No.: {{ infor[6] }}</h5>
-      <h5>Pincode: {{ infor[7] }}</h5>
+      <h5>Station name: {{ infor.1 }}</h5>
+      <h5>Washroom Available: {{ infor.2 }}</h5>
+      <h5>Parking Available: {{ infor.3 }}</h5>
+      <h5>Elevator: {{ infor.4 }}</h5>
+      <h5>Opening Date: {{ infor.5 }}</h5>
+      <h5>Contact No.: {{ infor.6 }}</h5>
+      <h5>Pincode: {{ infor.7 }}</h5>
         <h5>Places nearby:</h5>
-        {% for i in informa: %}
-          <p></p>{{ i[0] }}</p>
+        {% for i in informa %}
+          <p></p>{{ i.0 }}</p>
         {% endfor %}
       <div class="col-md-6">
         <table class="table">
@@ -84,10 +84,10 @@
             </tr>
           </thead>
           <tbody>
-            {% for i in inform: %}
+            {% for i in inform %}
             <tr>
-              <td>{{ i[2] }}</td>
-              <td>{{ i[3] }}</td>
+              <td>{{ i.2 }}</td>
+              <td>{{ i.3 }}</td>
             </tr>
             {% endfor %}
           </tbody>
