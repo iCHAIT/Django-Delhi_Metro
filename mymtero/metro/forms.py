@@ -4,9 +4,14 @@ from .models import dir
 
 from .models import info
 
-from .models import near
+from .models import near1
 
-from .models import rev
+from .models import near2
+
+from .models import rev1
+
+from .models import rev2
+
 
 class dirForm(forms.Form):
     source = forms.CharField()
@@ -17,10 +22,18 @@ class infoForm(forms.Form):
     statname = forms.CharField()
 
 
-class nearForm(forms.Form):
+class near1Form(forms.Form):
     place = forms.CharField(required = False)
+
+class near2Form(forms.Form):
     pin = forms.IntegerField(required = False)
 
 
-class revForm(forms.Form):
+class rev1Form(forms.Form):
     statname = forms.CharField()
+
+class rev2Form(forms.Form):
+    statname = forms.CharField()
+    title = forms.CharField()
+    bodytext = forms.TextField()
+    author = forms.CharField()

@@ -9,9 +9,13 @@ from .forms import dirForm
 
 from .forms import infoForm
 
-from .forms import nearForm
+from .forms import near1Form
 
-from .forms import revForm
+from .forms import near2Form
+
+from .forms import rev1Form
+
+from .forms import rev2Form
 
 
 # Create your views here.
@@ -31,10 +35,10 @@ def directions(request):
         for i in data:
             print i[0]
     context = {"form": form}
-    template = "directions.html"
+    template = "directions2.html"
     return render(request, template, context)
 
-
+'''
 def directions2(request):
         form = dirForm(request. POST or None)
         if form.is_valid():
@@ -50,12 +54,14 @@ def directions2(request):
             return render_template(request, template, context)
         else:
             return render_to_response('directions2.html')
+'''
 
 
+'''
 def info(request):
     form = infoForm(request.POST or None)
     if form.is_valid():
-        statname = form.cleaned_data['statname']
+        sname = form.cleaned_data['sname']
         cursor = connection.cursor()
         cursor.execute("SELECT distinct sname from metro_stationinfo")
         data = cursor.fetchall()
@@ -64,18 +70,19 @@ def info(request):
     context = {"form": form}
     template = "info.html"
     return render(request, template, context)
+    '''
 
 
-def info2(request):
+def info(request):
     form = infoForm(request.POST or None)
     if form.is_valid():
-        statname = form.cleaned_data['statname']
+        sname = form.cleaned_data['sname']
         cursor = connection.cursor()
-        cursor.execute("SELECT * from metro_facility where sname = '" + name + "'")
+        cursor.execute("SELECT * from metro_stationinfo where sname = %s",[sname])
         infor = cursor.fetchone()
-        cursor.execute("SELECT * from metro_stations where sname = '" + name + "'")
+        cursor.execute("SELECT * from metro_station where sname =%s",[sname])
         inform = cursor.fetchall()
-        cursor.execute("SELECT pname from metro_places where sname = '" + name + "'")
+        cursor.execute("SELECT pname from metro_places where sname =%s",[sname])
         informa = cursor.fetchall()
         for i in infor:
             print i
@@ -85,55 +92,60 @@ def info2(request):
             print i
         context = {"form": form}
         template = "info2.html"
-        return render(request, template, context)
-    else:
-            return render_to_response('info2.html')
+    return render_to_response('info2.html', {'infor':infor, 'inform':inform, 'informa':informa})
 
 
 def nearest(request):
-    form = nearForm(request.POST or None)
-    if form.is_valid():
-        if info == 'pin':
-            pincode = form.cleaned_data['pincode']
-            cursor = connection.cursor()
-            cursor.execute("SELECT sname from metro_facility where pincode = '"+ pincode +"'")
-            data = cursor.fetchall()
-        if info == 'near':
-            place = form.cleaned_data['place']
-            cursor = connection.cursor()
-            cursor.execute("SELECT sname from metro_places where pname = '" + place +"'")
-            data = cursor.fetchall()
-        for i in data:
-            print i
+    form1 = near1Form(request.POST or None)
+    form2 = near2Form(request.POST or None)
+    if form1.is_valid():
+        place = form.cleaned_data['place']
+        cursor = connection.cursor()
+        cursor.execute("SELECT sname from metro_places where pname =%s",[place])
+        data = cursor.fetchall()
+    if form2.is_valid():
+        pin = form.cleaned_data['pincode']
+        cursor = connection.cursor()
+        cursor.execute("SELECT sname from metro_facility where pincode =%s",[pin])
+        data = cursor.fetchall()
+    for i in data:
+        print i
     context = {"form": form}
-    template = "nearest.html"
-    return render(request, template, context)
-
-
-def nearest2(request):
-    return render_to_response('nearest2.html')
+    template = "nearest2.html"
+    return render_to_response('nearest2.html', {'data':data})
 
 
 def review(request):
-    form = revForm(request.POST or None)
-    if form.is_valid():
-        statname = form.cleaned_data['statname']
+    form1 = rev1Form(request.POST or None)
+    form2 = rev2Form(request.POST or None)
+    if form1.is_valid():
+        sname = form.cleaned_data['sname']
         cursor = connection().cursor()
-        cursor.execute("SELECT distinct sname from metro_stationinfo")
+        cursor.execute("SELECT sname,title,author,bodytext from metro_review where approved = 'Yes'")
+        data = cursor.fetchall()
+        for i in data:
+            print i
+    if form2.is_valid():
+        sname = form.cleaned_data['sname']
+        title = form.cleaned_data['title']
+        bodytext = form.cleaned_data['bodytext']
+        author = form.cleaned_data['author']
+        cursor = connection().cursor()
+        cursor.execute("INSERT (sname,title,author,timest,bodytext) into metro_review values %s,%s,%s,%s(now),%s"[sname,title,author,timest,bodytext])
         data = cursor.fetchall()
         for i in data:
             print i
     context = {"form": form}
     template = "review.html"
-    return render(request, template, context)
+    return render_to_response('review2.html', {'data':data})
 
-
+'''
 def review2(request):
     form = revForm(request.POST or None)
     if form.is_valid():
-        statname = form.cleaned_data['statname']
+        sname = form.cleaned_data['sname']
         cursor = connection.cursor()
-        cursor.execute("SELECT title,author,timest,bodytext from reviews where sname = '"+ name +"'")
+        cursor.execute("SELECT distinct sname from metro_stationinfo")
         data = cursor.fetchall()
         for i in data:
             print i
@@ -141,23 +153,8 @@ def review2(request):
     template = "review2.html"
     return render_to_response('review2.html')
 
-
+'''
 def about(request):
-    '''
-    form = EmailForm(request.POST or None)
-    if form.is_valid():
-        email =  form.cleaned_data['email']
-        new_join, created = Join.objects.get_or_create(email=email)
-        print new_join, created
-        
-    form = abcForm(request.POST or None)
-    if form.is_valid():
-        new_abc = form.save(commit=False)
-        new_abc.save()
-
-    context = {"form": form}
-    template = "about.html"
-    '''
     return render_to_response('about.html')
 
 

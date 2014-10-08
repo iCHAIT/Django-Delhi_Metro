@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # Create your models here.
 
 
@@ -24,7 +25,7 @@ class stationinfo(models.Model):
     def __str__(self):
         return self.sname
     class Meta:
-        verbose_name_plural = "Stationinfo"
+        verbose_name_plural = "Station Information"
 
 
 class station(models.Model):
@@ -55,15 +56,25 @@ class path(models.Model):
     fromsid = models.ForeignKey('stationinfo', related_name = 'fromsid_set')
     tosid = models.ForeignKey('stationinfo', related_name = 'tosid_set')
     cost = models.IntegerField()
+    def __str__(self):
+        return self.pathid
+    class Meta:
+        verbose_name_plural = "Path"
 
 
 class review(models.Model):
+    CHOICES = (
+               ('Yes','Yes'),
+               ('No','No'),
+               
+               )
     rid = models.AutoField(primary_key = True)
     sname = models.CharField(max_length = 50)
     title = models.CharField(max_length = 50)
     author = models.CharField(max_length = 50)
     timest = models.DateTimeField()
     bodytext = models.TextField()
+    approved = models.CharField(max_length = 5)
     def __str__(self):
         return self.title
     class Meta:
@@ -76,16 +87,22 @@ class dir(models.Model):
 
 
 class info(models.Model):
-    statname = models.CharField(max_length = 50)
+    sname = models.CharField(max_length = 50)
 
 
-class near(models.Model):
+class near1(models.Model):
     place = models.CharField(max_length = 75)
+
+class near2(models.Model):
     pin = models.BigIntegerField()
 
 
-class rev(models.Model):
-    statname = models.CharField(max_length = 50)
+class rev1(models.Model):
+    sname = models.CharField(max_length = 50)
 
-
+class rev2(models.Model):
+    sname = models.CharField(max_length = 50)
+    title = models.CharField(max_length = 50)
+    bodytext = models.TextField()
+    author = models.CharField(max_length = 50)
 
