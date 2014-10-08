@@ -80,7 +80,12 @@
 <h3>Nearest Metro Station</h3>
 
 <div class="col-md-6">
-  <form role="form" class="col-md-9 go-right" action="near">
+
+<form method="POST" action="/nearest2/">{% csrf_token %}
+  {{ form1.as_p }}
+  <input type='submit' value='join' class='btn' /> 
+
+  <!--form role="form" class="col-md-9 go-right" action="near">
     <p>Enter a famous place nearby: </p>
     <select id="e2" name="by">
         {% for i in 'names:' %}
@@ -91,13 +96,15 @@
     <p style = "text-align:center">
       <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
     </p>
-  </form>
+  </form-->
 </div>
 
 <div class="col-md-6">
 
+
+
   <form method="POST" action="/nearest2/">{% csrf_token %}
-  {{ form.as_p }}
+  {{ form2.as_p }}
   <input type='submit' value='join' class='btn' /> 
   <!--form role="form" class="col-md-9 go-right" action="pin">
     <p>Enter your pincode: </p>

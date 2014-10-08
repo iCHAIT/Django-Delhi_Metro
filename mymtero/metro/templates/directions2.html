@@ -78,11 +78,11 @@
         </tr>
       </thead>
       <tbody>
-        {% for i in 'data:' %}
+        {% for i in data: %}
         <tr>
-          <td>{{ 'i[2]' }}</td>
-          <td>{{ 'i[0]' }}</td>
-          <td>{{ 'i[1]' }}</td>
+          <td>{{ i[2] }}</td>
+          <td>{{ i[0] }}</td>
+          <td>{{ i[1] }}</td>
           <td><font color="{{'i[3]'}}">{{ 'i[3]' }}</font></td>
         </tr>
         {% endfor %}

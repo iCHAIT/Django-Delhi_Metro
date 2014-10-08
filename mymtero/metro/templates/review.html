@@ -83,7 +83,12 @@
     <br><br>
       <div class="col-md-6">
       <h2>View Reviews</h2>
-		<form role="form" class="col-md-9" action="/review2">
+
+      <form method="POST" action="/review2/">{% csrf_token %}
+      {{ form1.as_p }}
+      <input type='submit' value='join' class='btn' /> 
+
+		<!--form role="form" class="col-md-9" action="/review2">
             <p>Enter Station Name for which you want to view reviews:</p>
 			<select id="e2" name="stat_name">
         {% for i in 'data:' %}
@@ -93,11 +98,15 @@
 			<p style = "text-align:center">
 			<button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
 			</p>
-		</form>
+		</form-->
     </div>
         <div class="col-md-6">
           <h2>Add Review</h2>
-        <form role="form" class="col-md-9" method="post">
+          <form method="POST" action="/review2/">{% csrf_token %}
+          {{ form2.as_p }}
+          <input type='submit' value='join' class='btn' /> 
+
+        <!--form role="form" class="col-md-9" method="post">
             <p>Enter Station Name:</p>
         <select id="e1" name="stat">
         {% for i in 'data:' %}
@@ -124,7 +133,7 @@
       <p style="text-align: center">
   <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-plus"></i> Add Review</button>
   </p>
-    </form>
+    </form-->
       </div>
         </div>
 </div>
