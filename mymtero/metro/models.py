@@ -56,7 +56,7 @@ class path(models.Model):
     fromsid = models.ForeignKey('stationinfo', related_name = 'fromsid_set')
     tosid = models.ForeignKey('stationinfo', related_name = 'tosid_set')
     cost = models.IntegerField()
-    def __str__(self):
+    def __int__(self):
         return self.pathid
     class Meta:
         verbose_name_plural = "Path"

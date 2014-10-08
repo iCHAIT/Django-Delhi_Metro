@@ -35,5 +35,5 @@ class rev1Form(forms.Form):
 class rev2Form(forms.Form):
     statname = forms.CharField()
     title = forms.CharField()
-    bodytext = forms.TextField()
+    bodytext = forms.CharField()
     author = forms.CharField()

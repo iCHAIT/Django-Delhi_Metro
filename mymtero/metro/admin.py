@@ -33,7 +33,7 @@ class placesAdmin(admin.ModelAdmin):
     list_filter = ('sname',)
 
 class pathAdmin(admin.ModelAdmin):
-    list_display = ('pathid', 'fromsid', 'tosid')
+    list_display = ('fromsid', 'tosid')
     search_fields = ('pathid',)
     list_filter = ('pathid',)
 

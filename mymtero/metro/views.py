@@ -26,57 +26,35 @@ def home(request):
 
 def directions(request):
     form = dirForm(request.POST or None)
+    context = {"form": form}
+    template = "directions.html"
+    return render(request, template, context)
+
+
+def directions2(request):
     if form.is_valid():
         source = form.cleaned_data['source']
         dest = form.cleaned_data['dest']
         cursor = connection.cursor()
-        cursor.execute("call find_path(%s,%s)",[source,dist])
+        cursor.execute("call find_path(%s,%s)",[source,dest])
         data = cursor.fetchall()
         for i in data:
             print i[0]
-    context = {"form": form}
-    template = "directions2.html"
-    return render(request, template, context)
-
-'''
-def directions2(request):
-        form = dirForm(request. POST or None)
-        if form.is_valid():
-            source = request.form['source']
-            dest = request.form['dest']
-            cursor = connection.cursor()
-            cursor.execute("CALL find_path('"+ source +"','"+ dest +"')")
-            data = cursor.fetchall()
-            for i in data:
-                print i[0]
-            context = {"form": form}
-            template = "directions2.html"
-            return render_template(request, template, context)
-        else:
-            return render_to_response('directions2.html')
-'''
+    return render_to_response('directions2.html',{'data':data})
 
 
-'''
+
 def info(request):
     form = infoForm(request.POST or None)
-    if form.is_valid():
-        sname = form.cleaned_data['sname']
-        cursor = connection.cursor()
-        cursor.execute("SELECT distinct sname from metro_stationinfo")
-        data = cursor.fetchall()
-        for i in data:
-            print i
     context = {"form": form}
     template = "info.html"
     return render(request, template, context)
-    '''
 
 
-def info(request):
-    form = infoForm(request.POST or None)
+def info2(request):
     if form.is_valid():
-        sname = form.cleaned_data['sname']
+        #sname = form.cleaned_data['sname']
+        sname = "Khan Market"
         cursor = connection.cursor()
         cursor.execute("SELECT * from metro_stationinfo where sname = %s",[sname])
         infor = cursor.fetchone()
@@ -89,15 +67,21 @@ def info(request):
         for i in inform:
             print i
         for i in informa:
-            print i
-        context = {"form": form}
-        template = "info2.html"
-    return render_to_response('info2.html', {'infor':infor, 'inform':inform, 'informa':informa})
+                print i
+    context = {"infor":infor, "inform":inform, "informa":informa}
+    template = "info2.html"
+    return render(request, template, context)
+
 
 
 def nearest(request):
     form1 = near1Form(request.POST or None)
     form2 = near2Form(request.POST or None)
+    context = {"form1": form1,"form2": form2}
+    template = "nearest.html"
+    return render(request, template, context)
+
+def nearest2(request):
     if form1.is_valid():
         place = form.cleaned_data['place']
         cursor = connection.cursor()
@@ -118,6 +102,12 @@ def nearest(request):
 def review(request):
     form1 = rev1Form(request.POST or None)
     form2 = rev2Form(request.POST or None)
+    context = {"form1": form1,"form2": form2}
+    template = "review.html"
+    return render(request, template, context)
+
+
+def review2(request):
     if form1.is_valid():
         sname = form.cleaned_data['sname']
         cursor = connection().cursor()
@@ -135,25 +125,12 @@ def review(request):
         data = cursor.fetchall()
         for i in data:
             print i
-    context = {"form": form}
-    template = "review.html"
-    return render_to_response('review2.html', {'data':data})
-
-'''
-def review2(request):
-    form = revForm(request.POST or None)
-    if form.is_valid():
-        sname = form.cleaned_data['sname']
-        cursor = connection.cursor()
-        cursor.execute("SELECT distinct sname from metro_stationinfo")
-        data = cursor.fetchall()
-        for i in data:
-            print i
-    context = {"form": form}
+    context = {"data": data}
     template = "review2.html"
-    return render_to_response('review2.html')
+    return render(request, template, context)
 
-'''
+
+
 def about(request):
     return render_to_response('about.html')
 
