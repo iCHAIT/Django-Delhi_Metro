@@ -114,8 +114,8 @@ def review2(request):
         bodytext = form2.cleaned_data['bodytext']
         author = form2.cleaned_data['author']
         cursor = connection.cursor()
-        cursor.execute("INSERT INTO metro_review  ('sname') VALUES %s",[sname])
-        data = cursor.fetchall()
+        cursor.execute("INSERT INTO metro_review (sname,title,author,bodytext,timest,approved) VALUES (%s,%s,%s,%s,now(),'no')",[sname,title,author,bodytext])
+        data = cursor.execute('COMMIT')
     return render_to_response('review2.html', {'data': data})
 
 
