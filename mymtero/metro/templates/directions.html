@@ -83,14 +83,21 @@
     <div class="col-md-6">
 
 
-  <form method="POST" action="/directions2/">{% csrf_token %}
-  {{ form.as_p }}
-  <input type='submit' value='join' class='btn' /> 
+  <form role="form" method="POST" action="/directions2/">{% csrf_token %}
+  <p><b>Enter your start station: </p>
+  {{ form.source }}
+  <br><br>
+  <p>Enter your end station: </p>
+  {{ form.dest }}
+  <p style = "text-align:center">
+    <br><br>
+      <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
+    </p-->
 		<!--form role="form" class="col-md-9 go-right" action="/directions2" method= "post">
     <p>Enter your start station: </p>
     <select id="e3" name="source">
         {% for i in 'data:' %}
-        <option value="{{ 'i[0]' }}">{{ 'i[0]' }}</option>
+        <option value="{{ i.0 }}">{{ i.0 }}</option>
         {% endfor %}
     </select>
     <br><br>
@@ -102,8 +109,8 @@
     </select>
     <p style = "text-align:center">
       <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
-    </p>
-  </form-->
+    </p-->
+  </form>
   </div>
 		<img src="/static/img/dir.jpg" class="img-thumbnail" alt="Metro Map">
         </div>

@@ -81,9 +81,13 @@
 
 <div class="col-md-6">
 
-<form method="POST" action="/nearest2/">{% csrf_token %}
-  {{ form1.as_p }}
-  <input type='submit' value='join' class='btn' /> 
+<form role="form" method="POST" action="/nearest2/">{% csrf_token %}
+<p><b>Enter a famous place nearby: </p>
+  {{ form1.place }}
+  <p style = "text-align:center">
+  <br>
+      <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
+    </p>
 
   <!--form role="form" class="col-md-9 go-right" action="near">
     <p>Enter a famous place nearby: </p>
@@ -95,17 +99,21 @@
 
     <p style = "text-align:center">
       <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
-    </p>
-  </form-->
+    </p-->
+  </form>
 </div>
 
 <div class="col-md-6">
 
 
 
-  <form method="POST" action="/nearest3/">{% csrf_token %}
-  {{ form2.as_p }}
-  <input type='submit' value='join' class='btn' /> 
+  <form role="form" method="POST" action="/nearest3/">{% csrf_token %}
+  <p>Enter your pincode: </p>
+  {{ form2.pin }}
+    <p style = "text-align:center">
+    <br>
+      <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
+    </p>
   <!--form role="form" class="col-md-9 go-right" action="pin">
     <p>Enter your pincode: </p>
     <select id="e1" name="code">
@@ -116,8 +124,8 @@
     <br>
     <p style = "text-align:center">
       <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
-    </p>
-  </form-->
+    </p-->
+  </form>
 </div>
 
 </div>

@@ -77,9 +77,13 @@
 <h3>Station Information</h3>
 <div class="col-md-6">
 
-  <form method="POST" action="/info2/">{% csrf_token %}
-  {{ form.as_p }}
-<input type='submit' value='join' class='btn' /> 
+  <form role="form" method="POST" action="/info2/">{% csrf_token %}
+  <p><b>Enter the station you want information for: </p>
+  {{ form.sname }}
+  <p style = "text-align:center">
+  <br><br>
+      <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
+    </p>
   <!--form role="form" class="col-md-9 go-right" action="/info2" method="post">
     <p>Enter the station you want information for: </p>
     <select id="e1" name="stat_name">

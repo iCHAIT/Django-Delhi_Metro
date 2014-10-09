@@ -106,16 +106,16 @@ def review2(request):
     if form1.is_valid():
         sname = form1.cleaned_data['sname']
         cursor = connection.cursor()
-        cursor.execute("SELECT sname,title,author,bodytext from metro_review where approved = 'Yes'")
+        cursor.execute("SELECT sname,title,author,bodytext from metro_review where approved = 'no'")
         data = cursor.fetchall()
-    if form2.is_valid():
+    elif form2.is_valid():
         sname = form2.cleaned_data['sname']
         title = form2.cleaned_data['title']
         bodytext = form2.cleaned_data['bodytext']
         author = form2.cleaned_data['author']
         cursor = connection.cursor()
         cursor.execute("INSERT INTO metro_review (sname,title,author,bodytext,timest,approved) VALUES (%s,%s,%s,%s,now(),'no')",[sname,title,author,bodytext])
-        data = cursor.execute('COMMIT')
+        data = cursor.fetchall('COMMIT')
     return render_to_response('review2.html', {'data': data})
 
 

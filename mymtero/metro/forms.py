@@ -30,10 +30,10 @@ class near2Form(forms.Form):
 
 
 class rev1Form(forms.Form):
-    sname = forms.CharField()
+    sname = forms.CharField(required = False)
 
 class rev2Form(forms.Form):
-    sname = forms.CharField()
-    title = forms.CharField()
-    bodytext = forms.CharField()
-    author = forms.CharField()
+    sname = forms.CharField(required = False)
+    title = forms.CharField(required = False)
+    bodytext = forms.CharField(required = False)
+    author = forms.CharField(required = False)
