@@ -8,6 +8,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 admin.autodiscover()
 
+
 urlpatterns = patterns('',
                        # Examples:
                        url(r'^$', 'metro.views.home', name='home'),

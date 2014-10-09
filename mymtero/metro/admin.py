@@ -11,6 +11,7 @@ from metro.models import path
 from metro.models import review
 
 
+
 class stationinfoAdmin(admin.ModelAdmin):
     list_display = ('sname','washroom','parking','elevator','opening_date','contact','pincode')
     search_fields = ('sname',)
