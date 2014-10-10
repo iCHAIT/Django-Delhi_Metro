@@ -22,9 +22,12 @@ Build instructions:
 Remaining Issues-
 ==============
 
-1.css,js included,dropdown working for all forms but final(*2.html) template not rendered.
+1.css,js included,dropdown working for all forms on all templates but error in outputs after the form is submitted.
 
 2.Testing of project(for existing stations,lines).
+
+3.Testing of project(for new stations,lines).
+
 
 
 Note
