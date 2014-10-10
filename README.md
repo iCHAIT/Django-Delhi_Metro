@@ -22,15 +22,9 @@ Build instructions:
 Remaining Issues-
 ==============
 
-1.In nearest page pincode form not working!
+1.css,js included,dropdown working for all forms but final(*2.html) template not rendered.
 
-2.Review forms not working
-
-3.Dropdown option for Front end forms.
-
-4.Include css,text for forms
-
-5.Testing of project(for existing stations,lines).
+2.Testing of project(for existing stations,lines).
 
 
 Note
