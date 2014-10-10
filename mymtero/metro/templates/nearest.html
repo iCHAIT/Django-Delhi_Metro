@@ -21,7 +21,7 @@
     </script>
     <script>
         $(document).ready(function() {
-        $("#e2").select2();
+        $("#e2").select2({width : 'resolve'});
         });
 
     </script>
@@ -83,23 +83,17 @@
 
 <form role="form" method="POST" action="/nearest2/">{% csrf_token %}
 <p><b>Enter a famous place nearby: </p>
-  {{ form1.place }}
+ <select id="e2" name="by">
+  {% for i in data %}
+  {{ form1.place 
+   <option value="{{ i.0 }}">{{ i.0 }}</option> }}
+    {% endfor %}
+    </select>
+    <br>
   <p style = "text-align:center">
   <br>
       <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
     </p>
-
-  <!--form role="form" class="col-md-9 go-right" action="near">
-    <p>Enter a famous place nearby: </p>
-    <select id="e2" name="by">
-        {% for i in 'names:' %}
-        <option value="{{ 'i[0]' }}">{{ 'i[0]' }}</option>
-        {% endfor %}
-    </select>
-
-    <p style = "text-align:center">
-      <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
-    </p-->
   </form>
 </div>
 
@@ -109,22 +103,17 @@
 
   <form role="form" method="POST" action="/nearest3/">{% csrf_token %}
   <p>Enter your pincode: </p>
-  {{ form2.pin }}
+   <select id="e1" name="code">
+    {% for i in data1 %}
+  {{ form2.pin         
+  <option value="{{ i.0 }}">{{ i.0 }}</option> }}
+  {% endfor %}
+    </select>
+    <br>
     <p style = "text-align:center">
     <br>
       <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
     </p>
-  <!--form role="form" class="col-md-9 go-right" action="pin">
-    <p>Enter your pincode: </p>
-    <select id="e1" name="code">
-        {% for i in 'data:' %}
-        <option value="{{ "i[0]" }}">{{ "i[0]" }}</option>
-        {% endfor %}
-    </select>
-    <br>
-    <p style = "text-align:center">
-      <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
-    </p-->
   </form>
 </div>
 

@@ -26,10 +26,16 @@ urlpatterns = patterns('',
                        url(r'^nearest/', 'metro.views.nearest', name='nearest'),
                        
                        url(r'^nearest2/', 'metro.views.nearest2', name='nearest2'),
+
+                       url(r'^nearest3/', 'metro.views.nearest3', name='nearest3'),
                        
                        url(r'^review/','metro.views.review', name='review'),
                        
                        url(r'^review2/','metro.views.review2', name='review2'),
+
+                       
+                       url(r'^review3/','metro.views.review3', name='review3'),
+                       
                        
                        url(r'^about/', 'metro.views.about', name='about'),
                        

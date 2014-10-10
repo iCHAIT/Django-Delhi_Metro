@@ -15,7 +15,7 @@
     <script src="/static/js/select2.js"></script>
     <script>
         $(document).ready(function() {
-        $("#e1").select2();
+        $("#e1").select2({width : 'resolve'});
         });
 
     </script>
@@ -79,23 +79,12 @@
 
   <form role="form" method="POST" action="/info2/">{% csrf_token %}
   <p><b>Enter the station you want information for: </p>
-  {{ form.sname }}
+    {{ form.sname }}
   <p style = "text-align:center">
   <br><br>
       <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
-    </p>
-  <!--form role="form" class="col-md-9 go-right" action="/info2" method="post">
-    <p>Enter the station you want information for: </p>
-    <select id="e1" name="stat_name">
-        {% for i in 'data:' %}
-        <option value="{{ 'i[0]' }}">{{ 'i[0]' }}</option>
-        {% endfor %}
-    </select>
-
-    <p style = "text-align:center">
-      <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
-    </p>
-  </form-->
+    </p></b>
+  </form>
 </div>
 </div>
 </div>

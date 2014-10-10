@@ -15,13 +15,13 @@
     <script src="/static/js/select2.js"></script>
     <script>
         $(document).ready(function() {
-        $("#e1").select2();
+        $("#e1").select2({width : 'resolve'});
         });
 
     </script>
     <script>
         $(document).ready(function() {
-        $("#e2").select2();
+        $("#e2").select2({width : 'resolve'});
         });
 
     </script>
@@ -85,67 +85,39 @@
       <h2>View Reviews</h2>
       <form role="form" method="POST" action="/review2/">{% csrf_token %}
       <p><b>Enter Station Name for which you want to view reviews:</p>
+      <select id="e2" name="stat_name">
+        {% for i in data %}
       {{ form1.sname }}
+      <option value="{{ i.0 }}">{{ i.0 }}</option> 
+      {% endfor %}
+    </select>
       <p style = "text-align:center">
       <br>
       <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
       </p>
-
-		<!--form role="form" class="col-md-9" action="/review2">
-            <p>Enter Station Name for which you want to view reviews:</p>
-			<select id="e2" name="stat_name">
-        {% for i in 'data:' %}
-        <option value="{{ 'i[0]' }}">{{ 'i[0]' }}</option>
-        {% endfor %}
-    </select>
-			<p style = "text-align:center">
-			<button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
-			</p-->
 		</form>
     </div>
 
         <div class="col-md-6">
           <h2>Add Review</h2>
-          <form role="form" method="POST" action="/review2/">{% csrf_token %}
+          <form role="form" method="POST" action="/review3/">{% csrf_token %}
           <p>Enter Station Name:</p>
-          {{ form2.sname }}
+          <select id="e1" name="stat">
+           {% for i in data %}
+          {{ form2.sname 
+          <option value="{{ i.0 }}">{{ i.0 }}</option> }}
+          {% endfor %}
+        </select> 
           <p><br>Enter Title</p>
           {{ form2.title }}
           <p><br>Description:</p>
           {{ form2.bodytext }}
           <p><br>Enter Your Name:</p>
-          {{ form2.author }}
+          {{ form2.author }} 
           <p style="text-align: center">
           <br>
   <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-plus"></i> Add Review</button>
   </p>
-        <!--form role="form" class="col-md-9" method="post">
-            <p>Enter Station Name:</p>
-        <select id="e1" name="stat">
-        {% for i in 'data:' %}
-        <option value="{{ 'i[0]' }}">{{ 'i[0]' }}</option>
-        {% endfor %}
-        </select>
-      <p><br>Enter Title</p>
-      <div class="form-group">
-      <input id="title" name="title" type="text" class="form-control" required>
-      <label for="title">Title</label>
-      </div>
-
-          <p>Description:</p>
-      <div class="form-group">
-        <label for="desc">Description</label>
-        <textarea class="form-control" rows="3" name="desc" required></textarea>
-      </div>
-
-      <p>Enter Your Name:</p>
-      <div class="form-group">
-      <input id="author" name="author" type="text" class="form-control" required>
-      <label for="author">Author</label>
-      </div>
-      <p style="text-align: center">
-  <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-plus"></i> Add Review</button>
-  </p-->
     </form>
       </div>
     </div>
