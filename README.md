@@ -22,11 +22,13 @@ Build instructions:
 Remaining Issues-
 ==============
 
-1.css,js included,dropdown working for all forms on all templates but error in outputs after the form is submitted.
+1.Create a tuple/for loop for enabling a dropdown on all front end forms.
 
-2.Testing of project(for existing stations,lines).
+2.Put a home button on the django admin page to return to the hompage of the website.
 
-3.Testing of project(for new stations,lines).
+3.Testing of project(for existing stations,lines).
+
+4.Testing of project(for new stations,lines).
 
 
 
