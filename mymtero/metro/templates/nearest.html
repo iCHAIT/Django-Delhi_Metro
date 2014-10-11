@@ -83,12 +83,7 @@
 
 <form role="form" method="POST" action="/nearest2/">{% csrf_token %}
 <p><b>Enter a famous place nearby: </p>
- <select id="e2" name="by">
-  {% for i in data %}
-  {{ form1.place 
-   <option value="{{ i.0 }}">{{ i.0 }}</option> }}
-    {% endfor %}
-    </select>
+  {{ form1.place }}
     <br>
   <p style = "text-align:center">
   <br>
@@ -103,12 +98,7 @@
 
   <form role="form" method="POST" action="/nearest3/">{% csrf_token %}
   <p>Enter your pincode: </p>
-   <select id="e1" name="code">
-    {% for i in data1 %}
-  {{ form2.pin         
-  <option value="{{ i.0 }}">{{ i.0 }}</option> }}
-  {% endfor %}
-    </select>
+  {{ form2.pin }}        
     <br>
     <p style = "text-align:center">
     <br>

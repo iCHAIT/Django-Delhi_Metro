@@ -82,7 +82,12 @@ class review(models.Model):
 
 
 class dir(models.Model):
-    source = models.CharField(max_length = 50)
+    CHOICES = (
+                ('KM', 'Khan Market'),
+                ('KG', 'Kashmere Gate'),
+               
+        )
+    source = models.CharField(max_length = 50,choices = CHOICES)
     dest = models.CharField(max_length = 50)
 
 

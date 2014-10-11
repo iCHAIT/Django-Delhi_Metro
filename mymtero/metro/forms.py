@@ -1,5 +1,6 @@
 from django import forms
 
+
 from .models import dir
 
 from .models import info
@@ -12,19 +13,12 @@ from .models import rev1
 
 from .models import rev2
 
-from django.forms.widgets import Select
-
-from django.forms import widgets
 
 
+'''
 class dirForm(forms.Form):
-    SOURCE_CHOICES = (
-               ('KM', 'Khan Market'),
-               ('KG', 'Kashmere Gates'),
-               )
-    source = forms.CharField(widget=forms.Select)
-#    dest = forms.CharField()
-    dest = forms.ChoiceField(choices = SOURCE_CHOICES, widget=forms.Select())
+    source = forms.ChoiceField(widget=forms.Select)
+    dest = forms.CharField()
 
 
 class infoForm(forms.Form):
@@ -32,34 +26,78 @@ class infoForm(forms.Form):
 
 
 class near1Form(forms.Form):
-    place = forms.CharField(required = False)
+    place = forms.CharField()
+
 
 class near2Form(forms.Form):
-    pin = forms.IntegerField(required = False)
+    pin = forms.IntegerField()
 
 
 class rev1Form(forms.Form):
-    sname = forms.CharField(required = False)
+    sname = forms.CharField()
 
 class rev2Form(forms.Form):
-    sname = forms.CharField(required = False)
-    title = forms.CharField(required = False)
-    #    bodytext = forms.CharField(widget=forms.Textarea)
-    bodytext = forms.CharField(widget = forms.Textarea(),)
-    author = forms.CharField(required = False)
-
-
+    sname = forms.CharField()
+    title = forms.CharField()
+    bodytext = forms.CharField()
+    author = forms.CharField()
 
 '''
-                             title = forms.CharField(max_length=3,
-                                                     widget=forms.Select(choices=TITLE_CHOICES))
-                                                     
-                                                     sex = ChoiceField(label='', choices=SEX, widget=forms.Select(attrs={'class':'regDropDown'}))
+
+class dirForm(forms.Form):
+    CHOICES = (
+    
+            ('Rajiv Chowk', 'Rajiv Chowk'),
+            ('Patel Chowk', 'Patel Chowk'),
+    
+        )
+    source = forms.ChoiceField(choices = CHOICES)
+    dest = forms.ChoiceField(choices = CHOICES)
 
 
+class infoForm(forms.Form):
+    CHOICES = (
+               
+               ('Rajiv Chowk', 'Rajiv Chowk'),
+               ('Patel Chowk', 'Patel Chowk'),
+               
+               )
+    sname = forms.ChoiceField(choices = CHOICES)
 
-                             TITLE_CHOICES = (
-                                              ('MR', 'Mr.'),
-                                              ('MRS', 'Mrs.'),
-                                              ('MS', 'Ms.'),
-                                              )'''
+
+class near1Form(forms.Form):
+    place = forms.CharField()
+
+
+class near2Form(forms.Form):
+    CHOICES = (
+    
+        ('110003', '110003'),
+        ('110034', '110034')
+    
+        )
+    pin = forms.ChoiceField(choices = CHOICES)
+
+
+class rev1Form(forms.Form):
+    CHOICES = (
+               
+               ('Rajiv Chowk', 'Rajiv Chowk'),
+               ('Patel Chowk', 'Patel Chowk'),
+               
+               )
+    sname = forms.ChoiceField(choices = CHOICES)
+
+class rev2Form(forms.Form):
+    CHOICES = (
+               
+               ('Rajiv Chowk', 'Rajiv Chowk'),
+               ('Patel Chowk', 'Patel Chowk'),
+               
+               )
+    sname = forms.ChoiceField(choices = CHOICES)
+    title = forms.CharField()
+    bodytext = forms.CharField(widget=forms.Textarea)
+    author = forms.CharField()
+
+

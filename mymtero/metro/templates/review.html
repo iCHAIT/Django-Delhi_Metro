@@ -85,12 +85,7 @@
       <h2>View Reviews</h2>
       <form role="form" method="POST" action="/review2/">{% csrf_token %}
       <p><b>Enter Station Name for which you want to view reviews:</p>
-      <select id="e2" name="stat_name">
-        {% for i in data %}
       {{ form1.sname }}
-      <option value="{{ i.0 }}">{{ i.0 }}</option> 
-      {% endfor %}
-    </select>
       <p style = "text-align:center">
       <br>
       <button type="submit" class="btn btn-primary"> <i class="glyphicon glyphicon-search"></i> Search</button>
@@ -102,12 +97,7 @@
           <h2>Add Review</h2>
           <form role="form" method="POST" action="/review3/">{% csrf_token %}
           <p>Enter Station Name:</p>
-          <select id="e1" name="stat">
-           {% for i in data %}
-          {{ form2.sname 
-          <option value="{{ i.0 }}">{{ i.0 }}</option> }}
-          {% endfor %}
-        </select> 
+          {{ form2.sname }}
           <p><br>Enter Title</p>
           {{ form2.title }}
           <p><br>Description:</p>

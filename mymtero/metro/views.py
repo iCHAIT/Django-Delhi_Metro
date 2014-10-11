@@ -1,50 +1,49 @@
-from django.shortcuts import render,render_to_response, RequestContext
+from django.shortcuts import render_to_response, RequestContext
 
-from django.http import HttpResponse, request
+#from django.http import HttpResponse, request
 
 from django.db import connection
 
-
-
 from django import forms
 
-from metro.forms import dirForm
+from .models import dir
+from .forms import dirForm
 
-from metro.forms import infoForm
+from .models import info
+from .forms import infoForm
 
-from metro.forms import near1Form
+from .models import near1
+from .forms import near1Form
 
-from metro.forms import near2Form
+from .models import near2
+from .forms import near2Form
 
-from metro.forms import rev1Form
+from .models import rev1
+from .forms import rev1Form
 
-from metro.forms import rev2Form
+from .models import rev2
+from .forms import rev2Form
 
 
 # Create your views here.
 
+
 def home(request):
     return render_to_response('index.html')
-'''
-def user_profile(request):
-    if request.method == 'POST':
-        form = UserProfileForm(request.POST, instance=request.user.profile)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/accounts/loggedin')
-'''
+
+
 def directions(request):
     form = dirForm(request.POST or None)
-    cursor = connection.cursor()
-    cursor.execute("select sname from metro_stationinfo")
-    data = cursor.fetchall()
-    return render_to_response('directions.html', {'data': data})
+    #cursor = connection.cursor()
+    #cursor.execute("select sname from metro_stationinfo")
+    #data = cursor.fetchall()
+    return render_to_response('directions.html', {'form': form}, context_instance = RequestContext(request))
 
 
 def directions2(request):
     form = dirForm(request.POST or None)
     if form.is_valid():
-        source = form['source']
+        source = form.cleaned_data['source']
         dest = form.cleaned_data['dest']
         cursor = connection.cursor()
         cursor.execute("call find_path(%s,%s)",[source,dest])
@@ -55,34 +54,17 @@ def directions2(request):
 
 def info(request):
     form = infoForm(request.POST or None)
-    cursor = connection.cursor()
-    cursor.execute("select sname from metro_stationinfo")
-    data = cursor.fetchall()
-    return render_to_response('info.html', {'data': data},context_instance = RequestContext(request))
+    #    cursor = connection.cursor()
+    #cursor.execute("select sname from metro_stationinfo")
+    #data = cursor.fetchall()
+    return render_to_response('info.html', {'form': form}, context_instance = RequestContext(request))
 
 
-'''
-    def user_profile(request):
-    if request.method == 'POST':
-    form = UserProfileForm(request.POST, instance=request.user.profile)
-    if form.is_valid():
-    form.save()
-    return HttpResponseRedirect('/accounts/loggedin')
-    '''
 
 def info2(request):
     form = infoForm(request.POST or None)
-    if request.method == "POST":
-        if form.is_valid():
-            sname = form.get['sname']
-            form.save()
-            return HttpResponse('info2.html')
-
-    '''
-    form = infoForm(request.POST or None)
     if form.is_valid():
-        sname = 'Khan Market'
-        print sname
+        sname = form.cleaned_data['sname']
         cursor = connection.cursor()
         cursor.execute("SELECT * from metro_stationinfo where sname = %s",[sname])
         infor = cursor.fetchone()
@@ -91,19 +73,19 @@ def info2(request):
         cursor.execute("SELECT place from metro_places where sname =%s",[sname])
         informa = cursor.fetchall()
         return render_to_response('info2.html',{'infor': infor,'inform': inform,'informa': informa})
-        '''
 
 
 
 def nearest(request):
     form1 = near1Form(request.POST or None)
     form2 = near2Form(request.POST or None)
-    cursor = connection.cursor()
-    cursor.execute("select place from metro_places")
-    data = cursor.fetchall()
-    cursor.execute("select pincode from metro_stationinfo")
-    data1 = cursor.fetchall()
-    return render_to_response('nearest.html', {'data': data,'data1':data1})
+    #    cursor = connection.cursor()
+    #cursor.execute("select place from metro_places")
+    #data = cursor.fetchall()
+    #cursor.execute("select pincode from metro_stationinfo")
+    #data1 = cursor.fetchall()
+    return render_to_response('nearest.html', {'form1': form1,'form2':form2}, context_instance = RequestContext(request))
+
 
 def nearest2(request):
     form1 = near1Form(request.POST or None)
@@ -111,8 +93,8 @@ def nearest2(request):
     if form1.is_valid():
         place = form1.cleaned_data['place']
         cursor.execute("SELECT sname from metro_places where place =%s",[place])
-        data = cursor.fetchall()
-        return render_to_response('nearest2.html', {'data':data})
+        data1 = cursor.fetchall()
+        return render_to_response('nearest2.html', {'data1':data1})
 
 def nearest3(request):
     form2 = near2Form(request.POST or None)
@@ -120,17 +102,17 @@ def nearest3(request):
         pin = form2.cleaned_data['pin']
         cursor = connection.cursor()
         cursor.execute("SELECT sname from metro_stationinfo where pincode =%s",[pin])
-        data = cursor.fetchall()
-    return render_to_response('nearest2.html', {'data': data})
+        data2 = cursor.fetchall()
+    return render_to_response('nearest2.html', {'data2': data2})
 
 
 def review(request):
     form1 = rev1Form(request.POST or None)
     form2 = rev2Form(request.POST or None)
-    cursor = connection.cursor()
-    cursor.execute("select sname from metro_stationinfo")
-    data = cursor.fetchall()
-    return render_to_response('review.html', {'data': data})
+    #cursor = connection.cursor()
+    #cursor.execute("select sname from metro_stationinfo")
+    #data = cursor.fetchall()
+    return render_to_response('review.html', {'form1': form1, 'form2': form2}, context_instance = RequestContext(request))
 
 
 def review2(request):
@@ -157,8 +139,6 @@ def review3(request):
 
 def about(request):
     return render_to_response('about.html')
-
-
 
 
 
