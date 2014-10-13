@@ -34,9 +34,6 @@ def home(request):
 
 def directions(request):
     form = dirForm(request.POST or None)
-    #cursor = connection.cursor()
-    #cursor.execute("select sname from metro_stationinfo")
-    #data = cursor.fetchall()
     return render_to_response('directions.html', {'form': form}, context_instance = RequestContext(request))
 
 
@@ -54,9 +51,6 @@ def directions2(request):
 
 def info(request):
     form = infoForm(request.POST or None)
-    #    cursor = connection.cursor()
-    #cursor.execute("select sname from metro_stationinfo")
-    #data = cursor.fetchall()
     return render_to_response('info.html', {'form': form}, context_instance = RequestContext(request))
 
 
@@ -79,11 +73,6 @@ def info2(request):
 def nearest(request):
     form1 = near1Form(request.POST or None)
     form2 = near2Form(request.POST or None)
-    #    cursor = connection.cursor()
-    #cursor.execute("select place from metro_places")
-    #data = cursor.fetchall()
-    #cursor.execute("select pincode from metro_stationinfo")
-    #data1 = cursor.fetchall()
     return render_to_response('nearest.html', {'form1': form1,'form2':form2}, context_instance = RequestContext(request))
 
 
@@ -109,9 +98,6 @@ def nearest3(request):
 def review(request):
     form1 = rev1Form(request.POST or None)
     form2 = rev2Form(request.POST or None)
-    #cursor = connection.cursor()
-    #cursor.execute("select sname from metro_stationinfo")
-    #data = cursor.fetchall()
     return render_to_response('review.html', {'form1': form1, 'form2': form2}, context_instance = RequestContext(request))
 
 

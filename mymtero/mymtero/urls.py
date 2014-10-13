@@ -5,6 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 #uncomment the next 2 lines to enable admin
+
 from django.contrib import admin
 admin.autodiscover()
 
@@ -41,6 +42,7 @@ urlpatterns = patterns('',
                        
                        
                        #uncomment the next 2 lines to enable admin
+                       
                        url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
                        
                        url(r'^admin/', include(admin.site.urls)),
