@@ -1,6 +1,7 @@
 Django_Metro
 ============
 
+
 Delhi Metro DBMS project, with a web based frontend. Powered by Django Framework and Bootstrap.
 
 Requirements:
@@ -22,14 +23,12 @@ Build instructions:
 Remaining Issues-
 ==============
 
-1.Create a tuple/for loop for enabling a dropdown on all front end forms.
 
-2.Put a home button on the django admin page to return to the hompage of the website.
+1.Put a home button on the django admin page to return to the hompage of the website.
 
-3.Testing of project(for existing stations,lines).
+2.Testing of project(for existing stations,lines).
 
-4.Testing of project(for new stations,lines).
-
+3.Testing of project(for new stations,lines).
 
 
 Note
