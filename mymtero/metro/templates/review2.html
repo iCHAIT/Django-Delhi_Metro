@@ -59,24 +59,23 @@
       </div>
    </div>
 
-
-
-
-<br><br>
+    <h2>Reviews</h2>
+<br>
 
     <div class="container marketing">
-
-      <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4">
-        {% for i in review %}
+        {% for i in data %}
           <img class="img-circle" src="/static/img/dir.png" style="width: 140px; height: 140px;">
-          <h2>{{ i.1 }}</h2>
-          <p>{{ i.4 }}</p>
+          <h2>{{ i.0 }}</h2>
+          <p>{{ i.3 }}</p>
+          <p>- {{ i.1 }}</p>
           <p>- {{ i.2 }}</p>
-        </div><!-- /.col-lg-4 -->
-        {% endfor %}
-      </div><!-- /.row -->
+        </div>
+          {% endfor %}
+      </div>
+
+
 
 	<div class="container">
 		<hr>
@@ -88,7 +87,7 @@
 		</div>
 	</div>
 
-</div>
+</div-->
 
       <!-- FOOTER -->
       <footer>

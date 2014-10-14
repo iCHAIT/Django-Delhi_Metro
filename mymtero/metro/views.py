@@ -106,7 +106,7 @@ def review2(request):
     if form1.is_valid():
         sname = form1.cleaned_data['sname']
         cursor = connection.cursor()
-        cursor.execute("SELECT sname,title,author,bodytext from metro_review where approved = 'no'")
+        cursor.execute("SELECT sname,title,author,bodytext from metro_review where approved = 'Yes'")
         data = cursor.fetchall()
     return render_to_response('review2.html', {'data': data})
 
@@ -120,7 +120,8 @@ def review3(request):
         cursor = connection.cursor()
         cursor.execute("INSERT INTO metro_review (sname,title,author,bodytext,timest,approved) VALUES (%s,%s,%s,%s,now(),'no')",[sname,title,author,bodytext])
         cursor.execute('COMMIT')
-    return render_to_response('review2.html')
+    data = "Review has been added. It will be displayed once approved by the admin."
+    return render_to_response('boilerplate.html', {'data': data})
 
 
 def about(request):
