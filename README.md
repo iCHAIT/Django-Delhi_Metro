@@ -1,15 +1,21 @@
 Django_Metro
 ============
 
-
 Delhi Metro DBMS project, with a web based frontend. Powered by Django Framework and Bootstrap.
 
-Requirements:
+
+## Requirements
 
 Python 2.7
+
 Django
 
-Build instructions:
+MySQL
+
+MySQLDB
+
+
+## Build instructions:
 
 1. cd to django_metro (Project folder)
 
@@ -20,19 +26,10 @@ Build instructions:
 4. python manage.py runserver
 
 
-Remaining Issues-
-==============
-
-
-1.Put a home button on the django admin page to return to the hompage of the website.
-
-2.routing not correct for some cases.
-
-
 Note
 ====
 
-Virtualencv has been used for this project.
+Virtualenv has been used for this project.
 
 The project is running on Django version 1.6.5 !!
 
@@ -45,9 +42,13 @@ Tables
 ======
 
 -> metro_stationinfo corresponds to stationinfo.txt
+
 -> metro_station corresponds to station.txt
+
 -> metro_places corresponds to places.txt
+
 -> metro_path corresponds to path.txt
+
 -> metro_review handled by the admin
 
 

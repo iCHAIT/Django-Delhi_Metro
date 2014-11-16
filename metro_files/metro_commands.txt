@@ -1,0 +1,92 @@
+drop database metro;
+create database metro;
+use metro;
+
+create table metro_facility	(
+				sid int primary key auto_increment,
+				sname varchar (50),
+				washroom varchar(5),
+				parking varchar(5),
+				elevator varchar(5),
+				opening_date date,
+				contact bigint,
+				pincode int,
+				cost int NULL,
+				pathId int NULL,
+				calculated int NULL
+				);
+
+load data local infile 'd:/metro/metro_facility.txt' into table metro_facility;
+
+
+create table m_places		(
+				pid  int primary key auto_increment,
+				sname varchar(50),
+				place varchar(75)
+				);
+
+
+create table metro_places	(
+				sid int,
+				pid  int primary key auto_increment,
+				sname varchar(50),
+				place varchar(75),
+				foreign key(sid) references metro_facility(sid) on update cascade on delete cascade
+				);
+
+
+load data local infile 'd:/metro/metro_places.txt' into table m_places;
+insert into metro_places (select b.sid,pid,a.sname,place from m_places as a ,metro_facility as b where a.sname=b.sname);
+drop table m_places;
+
+
+ 
+create table metro_paths	(
+				pathId int primary key auto_increment,
+				fromsid int,
+				tosid int,
+				cost int,
+				foreign key(fromsid) references metro_facility(sid) on update cascade on delete cascade,
+				foreign key(tosid) references metro_facility(sid) on update cascade on delete cascade
+				);
+load data local infile 'd:/metro/metro_path.txt' into table metro_paths;
+
+
+create table m_stations		(
+				sno int primary key auto_increment,
+				sname varchar (50),
+				line varchar(15),
+				grade varchar(15)
+				);
+
+create table metro_stations	(
+				sid int,
+				sno int primary key auto_increment,
+				sname varchar (50),
+				line varchar(15),
+				grade varchar(15),
+				foreign key(sid) references metro_facility(sid) on update cascade on delete cascade
+				);
+
+load data local infile 'd:/metro/metro_stations.txt' into table m_stations;
+insert into metro_stations (select b.sid,sno,a.sname,line,grade from m_stations as a ,metro_facility as b where a.sname=b.sname);
+drop table m_stations;
+
+
+create table reviews  		(
+				timest timestamp primary key,
+				sname varchar(50) not null,
+				title varchar(50) not null,
+				author varchar(50),					
+				bodytext longtext not null,				
+				approval varchar(5)
+				);				
+
+create table metro_admin	(
+				username varchar(25),
+				password varchar(25)
+				);
+
+insert into metro_admin values("admin@admin.com","admin");
+
+grant all privileges on *.* to root@localhost identified by 'aman' with grant option;

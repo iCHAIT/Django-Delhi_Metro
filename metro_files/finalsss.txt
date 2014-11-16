@@ -1,0 +1,133 @@
+DROP PROCEDURE add_station;
+DELIMITER |
+CREATE PROCEDURE add_station ( in old_sname varchar(50), in new_sname varchar(50),in new_washroom varchar(5),in new_parking varchar(5),
+in new_elevator varchar(5),in new_opening_date date, in new_contact bigint,in new_pincode int,in new_cost int, in new_line varchar(15),
+in new_grade varchar(15))
+BEGIN
+    DECLARE old_sid,new_sid int;
+    DECLARE s1 ,s2 varchar(50);
+
+      SET s1 = ( SELECT DISTINCT sname FROM metro_stations WHERE sname=old_sname ); 
+      SET s2 = ( SELECT DISTINCT sname FROM metro_stations WHERE sname=old_sname and line=new_line);
+      
+
+    IF s1 IS NULL THEN 
+        SELECT CONCAT('Station ', old_sname, ' not found.');
+	ELSE
+		BEGIN
+		IF s1 IS NOT NULL and S2 is NULL THEN
+			SET old_sid= (SELECT sid from metro_facility where sname=old_sname);
+			INSERT INTO metro_stations(sid,sname,line,grade) VALUES (old_sid,old_sname,new_line,new_grade);
+			
+		END IF;	
+			INSERT INTO metro_facility(sname,washroom,parking,elevator,opening_date,contact,pincode,cost,pathid,calculated)
+			VALUES (new_sname,new_washroom,new_parking,new_elevator,new_opening_date,new_contact,new_pincode,new_cost,NULL,NULL);
+			SELECT sid from metro_facility where sname=new_sname into new_sid;
+			INSERT INTO metro_stations(sid,sname,line,grade) VALUES (new_sid,new_sname,new_line,new_grade);
+			SET old_sid=(SELECT sid from metro_facility where sname=old_sname);
+			INSERT INTO metro_paths(tosid,fromsid,cost) values(new_sid,old_sid,new_cost);
+			INSERT INTO metro_paths(tosid,fromsid,cost) values(old_sid,new_sid,new_cost);
+		END;
+	END IF;
+END;
+|
+DELIMITER ;
+
+
+
+drop procedure find_path;
+DELIMITER | 
+CREATE PROCEDURE find_path( pFromsname VARCHAR(50), pTosname VARCHAR(50) ) 
+BEGIN 
+  DECLARE vFromsid, vTosid, vsid, vCost, vpathId,c INT; 
+  DECLARE vFromsname, vTosname VARCHAR(50); 
+  DECLARE l varchar(15);
+  -- null out path info in the nodes table 
+  UPDATE metro_facility SET pathId = NULL,Cost = NULL,Calculated = 0; 
+  -- find sids referenced by input params 
+  SET vFromsid = ( SELECT sid FROM metro_facility WHERE sname = pFromsname ); 
+  IF vFromsid IS NULL THEN 
+    SELECT CONCAT('From node name ', pFromsname, ' not found.' );  
+  ELSE 
+    BEGIN 
+      -- start at src node 
+      SET vsid = vFromsid; 
+      SET vTosid = ( SELECT sid FROM metro_facility WHERE sname = pTosname ); 
+      IF vTosid IS NULL THEN 
+        SELECT CONCAT('From node name ', pTosname, ' not found.' ); 
+      ELSE 
+        BEGIN 
+          -- calculate path costs till all are done 
+          UPDATE metro_facility SET Cost=0 WHERE sid = vFromsid; 
+          WHILE vsid IS NOT NULL DO 
+            BEGIN 
+              UPDATE  
+                metro_facility AS src 
+                JOIN metro_paths AS paths ON paths.Fromsid = src.sid 
+                JOIN metro_facility AS dest ON dest.sid = Paths.Tosid 
+              SET dest.Cost = CASE 
+                                WHEN dest.Cost IS NULL THEN src.Cost + Paths.Cost 
+                                WHEN src.Cost + Paths.Cost < dest.Cost THEN src.Cost + Paths.Cost 
+                                ELSE dest.Cost 
+                              END, 
+                  dest.pathId = Paths.pathId 
+              WHERE  
+                src.sid = vsid 
+                AND (dest.Cost IS NULL OR src.Cost + Paths.Cost < dest.Cost) 
+                AND dest.Calculated = 0; 
+        
+              UPDATE metro_facility SET Calculated = 1 WHERE sid = vsid; 
+
+              SET vsid = ( SELECT sid FROM metro_facility 
+                              WHERE Calculated = 0 AND Cost IS NOT NULL 
+                              ORDER BY Cost LIMIT 1 
+                            ); 
+            END; 
+          END WHILE; 
+        END; 
+      END IF; 
+    END; 
+  END IF; 
+  IF EXISTS( SELECT 1 FROM metro_facility WHERE sid = vTosid AND Cost IS NULL ) THEN 
+    -- problem,  cannot proceed 
+    SELECT CONCAT( 'Node ',vsid, ' missed.' ); 
+  ELSE 
+    BEGIN 
+      -- write itinerary to map table 
+      DROP TEMPORARY TABLE IF EXISTS map; 
+      CREATE TEMPORARY TABLE map ( 
+        RowID INT PRIMARY KEY AUTO_INCREMENT, 
+        Fromsname VARCHAR(50), 
+        Tosname VARCHAR(50), 
+        Line varchar(15),
+        Cost INT 
+      ) ENGINE=MEMORY; 
+      WHILE vFromsid <> vTosid DO 
+        BEGIN 
+          SELECT  
+            src.sname,dest.sname,dest.Cost,dest.pathId
+            INTO vFromsname, vTosname, vCost, vpathId
+          FROM  
+            metro_facility AS dest
+            JOIN metro_paths AS Paths ON Paths.pathId = dest.pathId 
+            JOIN metro_facility AS src ON src.sid = Paths.Fromsid 
+          WHERE dest.sid = vTosid; 
+            select count(*) from metro_stations where sname=vFromsname into c;
+            if c=1
+            then
+                select line from metro_stations where sname=vFromsname into l;
+            else
+                select line from metro_stations where sname=vFromsname and line in (select line from metro_stations where sname=vTosname) into l;
+            end if;
+          INSERT INTO Map(Fromsname,Tosname,Cost,Line) VALUES(vFromsname,vTosname,vCost,l); 
+           
+          SET vTosid = (SELECT Fromsid FROM metro_paths WHERE pathId = vpathId); 
+        END; 
+      END WHILE; 
+      SELECT Fromsname,Tosname,Cost,Line FROM Map ORDER BY RowID DESC; 
+      DROP TEMPORARY TABLE Map; 
+    END; 
+  END IF; 
+END; 
+| 
+DELIMITER ; 

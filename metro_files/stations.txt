@@ -1,0 +1,148 @@
+1	Jahangirpuri	Yellow	Elevated	*
+2	Adarsh Nagar	Yellow	Elevated	*
+3	Azadpur	Yellow	Elevated	*
+4	Model Town	Yellow	Elevated	*
+5	GTB Nagar	Yellow	Underground	*
+6	Vishwa Vidyalaya	Yellow	Underground	*
+7	Vidhan Sabha	Yellow	Underground	*
+8	Civil Lines	Yellow	Underground	*
+9	Kashmere Gate	Yellow	Underground	*
+10	Chandni Chowk	Yellow	Underground	*
+11	Chawri Bazar	Yellow	Underground	*
+12	New Delhi	Yellow	Underground	*
+13	Rajiv Chowk	Yellow	Underground	*
+14	Patel Chowk	Yellow	Underground	*
+15	Central Secretariat	Yellow	Underground	*
+16	Udyog Bhawan	Yellow	Underground	*
+17	Race Course	Yellow	Underground	*
+18	Jor Bagh	Yellow	Underground	*
+19	INA	Yellow	Underground	*
+20	AIIMS	Yellow	Underground	*
+21	Green Park	Yellow	Underground	*
+22	Hauz Khas	Yellow	Underground	*
+23	Malviya Nagar	Yellow	Underground	*
+24	Saket	Yellow	Underground	*
+25	Qutub Minar	Yellow	Elevated	*
+26	Chhatarpur	Yellow	Elevated	*
+27	Sultanpur	Yellow	Elevated	*
+28	Ghitorni	Yellow	Elevated	*
+29	Arjan Garh	Yellow	Elevated	*
+30	Guru Dronacharya	Yellow	Elevated	*
+31	Sikandarpur	Yellow	Elevated	*
+32	MG Road	Yellow	Elevated	*
+33	IFFCO Chowk	Yellow	Elevated	*
+34	HUDA City Centre	Yellow	Elevated	*
+35	Mandi House	Violet	Underground	*
+36	Janpath	Violet	Underground	*
+37	Central Secretariat	Violet	Underground	*
+38	Khan Market	Violet	Underground	*
+39	Jawaharlal Nehru Stadium	Violet	Underground	*
+40	Jangpura	Violet	Underground	*
+41	Lajpat Nagar	Violet	Elevated	*
+42	Moolchand	Violet	Elevated	*
+43	Kailash Colony	Violet	Elevated	*
+44	Nehru Place	Violet	Elevated	*
+45	Kalkaji Mandir	Violet	Elevated	*
+46	Govind Puri	Violet	Elevated	*
+47	Okhla	Violet	Elevated	*
+48	Jasola Apollo	Violet	Elevated	*
+49	Sarita Vihar	Violet	Elevated	*
+50	Mohan Estate	Violet	Elevated	*
+51	Tughlakabad	Violet	Elevated	*
+52	Badarpur	Violet	Elevated	*
+53	Dilshad Garden	Red	Elevated	*
+54	Jhilmil	Red	Elevated	*
+55	Mansarovar Park	Red	Elevated	*
+56	Shahdara	Red	At Grade	*
+57	Welcome	Red	Elevated	*
+58	Seelampur	Red	Elevated	*
+59	Shastri Park	Red	At Grade	*
+60	Kashmere Gate	Red	Elevated	*
+61	Tis Hazari	Red	Elevated	*
+62	Pul Bangash	Red	Elevated	*
+63	Pratap Nagar	Red	Elevated	*
+64	Shastri Nagar	Red	Elevated	*
+65	Inderlok	Red	Elevated	*
+66	Kanhiya Nagar	Red	Elevated	*
+67	Keshav Puram	Red	Elevated	*
+68	Netaji Subhash Place	Red	Elevated	*
+69	Kohat Enclave	Red	Elevated	*
+70	Pitam Pura	Red	Elevated	*
+71	Rohini East	Red	Elevated	*
+72	Rohini West	Red	Elevated	*
+73	Rithala	Red	Elevated	*
+74	Kirti Nagar	Green	Elevated	*
+75	Satguru Ramsingh Marg	Green	Elevated	*
+76	Ashok Park Main	Green	Elevated	*
+77	Punjabi Bagh East	Green	Elevated	*
+78	Shivaji Park	Green	Elevated	*
+79	Madipur	Green	Elevated	*
+80	Paschim Vihar East	Green	Elevated	*
+81	Paschim Vihar West	Green	Elevated	*
+82	Peera Garhi	Green	Elevated	*
+83	Udyog Nagar	Green	Elevated	*
+84	Surajmal Stadium	Green	Elevated	*
+85	Nangloi	Green	Elevated	*
+86	Nangloi Railway Station	Green	Elevated	*
+87	Rajdhani Park	Green	Elevated	*
+88	Mundka	Green	Elevated	*
+89	Inderlok	TempG	Elevated	*
+90	Ashok Park Main	TempG	Elevated	*
+91	New Delhi	Orange	Underground	*
+92	Shivaji Stadium	Orange	Underground	*
+93	Dhaula Kuan	Orange	Elevated	*
+94	Aerocity	Orange	Underground	*
+95	IGI Airport	Orange	Underground	*
+96	Dwarka Sector 21	Orange	Elevated	*
+97	Noida City Center	TempB	Elevated	*
+98	Golf Course	TempB	Elevated	*
+99	Botanical Garden	TempB	Elevated	*
+100	Noida Sector 18	TempB	Elevated	*
+101	Noida Sector 16	TempB	Elevated	*
+102	Noida Sector 15	TempB	Elevated	*
+103	New Ashok Nagar	TempB	Elevated	*
+104	Mayur Vihar Extension	TempB	Elevated	*
+105	Mayur Vihar-I	TempB	Elevated	*
+106	Akshardham	TempB	Elevated	*
+107	Yamuna Bank	TempB	At Grade	*
+108	Vaishali	Blue	Elevated	*
+109	Kaushambi	Blue	Elevated	*
+110	Anand Vihar	Blue	Elevated	*
+111	Karkarduma	Blue	Elevated	*
+112	Preet Vihar	Blue	Elevated	*
+113	Nirman Vihar	Blue	Elevated	*
+114	Laxmi Nagar	Blue	Elevated	*
+115	Yamuna Bank	Blue	At Grade	*
+116	Indraprastha	Blue	Elevated	*
+117	Pragati Maidan	Blue	Elevated	*
+118	Mandi House	Blue	Underground	*
+119	Barakhamba Road	Blue	Underground	*
+120	Rajiv Chowk	Blue	Underground	*
+121	Ramakrishna Ashram Marg	Blue	Elevated	*
+122	Jhandewalan	Blue	Elevated	*
+123	Karol Bagh	Blue	Elevated	*
+124	Rajendra Place	Blue	Elevated	*
+125	Patel Nagar	Blue	Elevated	*
+126	Shadipur	Blue	Elevated	*
+127	Kirti Nagar	Blue	Elevated	*
+128	Moti Nagar	Blue	Elevated	*
+129	Ramesh Nagar	Blue	Elevated	*
+130	Rajouri Garden	Blue	Elevated	*
+131	Tagore Garden	Blue	Elevated	*
+132	Subhash Nagar	Blue	Elevated	*
+133	Tilak Nagar	Blue	Elevated	*
+134	Janakpuri East	Blue	Elevated	*
+135	Janakpuri West	Blue	Elevated	*
+136	Uttam Nagar East	Blue	Elevated	*
+137	Uttam Nagar West	Blue	Elevated	*
+138	Nawada	Blue	Elevated	*
+139	Dwarka Mor	Blue	Elevated	*
+140	Dwarka	Blue	Elevated	*
+141	Dwarka Sector 14	Blue	Elevated	*
+142	Dwarka Sector 13	Blue	Elevated	*
+143	Dwarka Sector 12	Blue	Elevated	*
+144	Dwarka Sector 11	Blue	Elevated	*
+145	Dwarka Sector 10	Blue	Elevated	*
+146	Dwarka Sector 9	Blue	Elevated	*
+147	Dwarka Sector 8	Blue	Elevated	*
+148	Dwarka Sector 21	Blue	Elevated	*
