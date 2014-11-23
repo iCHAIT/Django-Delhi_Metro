@@ -1,7 +1,7 @@
-Django_Metro
+Django-Delhi_Metro
 ============
 
-Delhi Metro DBMS project, with a web based frontend. Powered by Django Framework and Bootstrap.
+Delhi Metro Management system website powered by the Django framwork and MySQL as the database. 
 
 
 ## Requirements
@@ -41,15 +41,15 @@ mysql>load data local infile 'absolutepath' into table table_name;
 Tables
 ======
 
--> metro_stationinfo corresponds to stationinfo.txt
+-> metro_stationinfo corresponds to stationinfo.txt.
 
--> metro_station corresponds to station.txt
+-> metro_station corresponds to station.txt.
 
--> metro_places corresponds to places.txt
+-> metro_places corresponds to places.txt.
 
--> metro_path corresponds to path.txt
+-> metro_path corresponds to path.txt.
 
--> metro_review handled by the admin
+-> metro_review handled by the admin side.
 
 
 
