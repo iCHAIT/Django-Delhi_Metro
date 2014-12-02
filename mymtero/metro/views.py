@@ -1,7 +1,5 @@
 from django.shortcuts import render_to_response, RequestContext
 
-#from django.http import HttpResponse, request
-
 from django.db import connection
 
 from django import forms

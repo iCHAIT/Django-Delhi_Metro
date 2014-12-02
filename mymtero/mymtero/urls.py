@@ -4,7 +4,7 @@ from django.conf import settings
 
 from django.conf.urls.static import static
 
-#uncomment the next 2 lines to enable admin
+#keep next 2 lines uncommented to enable admin
 
 from django.contrib import admin
 admin.autodiscover()
@@ -41,7 +41,7 @@ urlpatterns = patterns('',
                        url(r'^about/', 'metro.views.about', name='about'),
                        
                        
-                       #uncomment the next 2 lines to enable admin
+                       #keep the next 2 lines uncommented to enable admin
                        
                        url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
                        
