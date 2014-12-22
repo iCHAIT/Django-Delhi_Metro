@@ -111,7 +111,7 @@ STATICFILES_DIRS = (
                     
                     )
 
-
+'''
 STATICFILES_FINDERS = (
                        
                        'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -129,3 +129,4 @@ TEMPLATE_CONTEXT_PROCESSORS = (
                                "django.core.context_processors.static",
                                "django.core.context_processors.csrf",
                                )
+'''
