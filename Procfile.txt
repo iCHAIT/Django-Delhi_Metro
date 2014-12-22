@@ -1,1 +1,1 @@
-web: gunicorn metro.wsgi --log-file -
+web: gunicorn mymtero.wsgi
