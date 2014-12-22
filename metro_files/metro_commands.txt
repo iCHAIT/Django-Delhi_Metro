@@ -1,8 +1,8 @@
-drop database metro;
-create database metro;
-use metro;
+drop database hello;
+create database hello;
+use hello;
 
-create table metro_facility	(
+create table hello_stationinfo	(
 				sid int primary key auto_increment,
 				sname varchar (50),
 				washroom varchar(5),
@@ -16,61 +16,61 @@ create table metro_facility	(
 				calculated int NULL
 				);
 
-load data local infile 'd:/metro/metro_facility.txt' into table metro_facility;
+load data local infile '/Users/chaitanyagupta/Desktop/stationinfo.txt' into table hello_stationinfo;
 
 
-create table m_places		(
+create table h_places		(
 				pid  int primary key auto_increment,
 				sname varchar(50),
 				place varchar(75)
 				);
 
 
-create table metro_places	(
+create table hello_places	(
 				sid int,
 				pid  int primary key auto_increment,
 				sname varchar(50),
 				place varchar(75),
-				foreign key(sid) references metro_facility(sid) on update cascade on delete cascade
+				foreign key(sid) references hello_stationinfo(sid) on update cascade on delete cascade
 				);
 
 
-load data local infile 'd:/metro/metro_places.txt' into table m_places;
-insert into metro_places (select b.sid,pid,a.sname,place from m_places as a ,metro_facility as b where a.sname=b.sname);
-drop table m_places;
+load data local infile '/Users/chaitanyagupta/Desktop/places.txt' into table h_places;
+insert into hello_places (select b.sid,pid,a.sname,place from h_places as a ,hello_stationinfo as b where a.sname=b.sname);
+drop table h_places;
 
 
  
-create table metro_paths	(
+create table hello_paths	(
 				pathId int primary key auto_increment,
 				fromsid int,
 				tosid int,
 				cost int,
-				foreign key(fromsid) references metro_facility(sid) on update cascade on delete cascade,
-				foreign key(tosid) references metro_facility(sid) on update cascade on delete cascade
+				foreign key(fromsid) references hello_stationinfo(sid) on update cascade on delete cascade,
+				foreign key(tosid) references hello_stationinfo(sid) on update cascade on delete cascade
 				);
-load data local infile 'd:/metro/metro_path.txt' into table metro_paths;
+load data local infile '/Users/chaitanyagupta/Desktop/path.txt' into table hello_paths;
 
 
-create table m_stations		(
+create table h_stations		(
 				sno int primary key auto_increment,
 				sname varchar (50),
 				line varchar(15),
 				grade varchar(15)
 				);
 
-create table metro_stations	(
+create table hello_stations	(
 				sid int,
 				sno int primary key auto_increment,
 				sname varchar (50),
 				line varchar(15),
 				grade varchar(15),
-				foreign key(sid) references metro_facility(sid) on update cascade on delete cascade
+				foreign key(sid) references hello_stationinfo(sid) on update cascade on delete cascade
 				);
 
-load data local infile 'd:/metro/metro_stations.txt' into table m_stations;
-insert into metro_stations (select b.sid,sno,a.sname,line,grade from m_stations as a ,metro_facility as b where a.sname=b.sname);
-drop table m_stations;
+load data local infile '/Users/chaitanyagupta/Desktop/stations.txt' into table h_stations;
+insert into hello_stations (select b.sid,sno,a.sname,line,grade from h_stations as a ,hello_stationinfo as b where a.sname=b.sname);
+drop table h_stations;
 
 
 create table reviews  		(
@@ -82,11 +82,11 @@ create table reviews  		(
 				approval varchar(5)
 				);				
 
-create table metro_admin	(
+create table hello_admin	(
 				username varchar(25),
 				password varchar(25)
 				);
 
-insert into metro_admin values("admin@admin.com","admin");
+insert into hello_admin values("admin@admin.com","admin");
 
 grant all privileges on *.* to root@localhost identified by 'aman' with grant option;

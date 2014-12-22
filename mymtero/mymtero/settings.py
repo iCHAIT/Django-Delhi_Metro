@@ -73,7 +73,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'metrod',
         'USER': 'root',
-        'PASSWORD': '12345',
+        'PASSWORD': 'adityagupta',
         'HOST': '',
         'PORT': '',
         
@@ -129,6 +129,3 @@ TEMPLATE_CONTEXT_PROCESSORS = (
                                "django.core.context_processors.static",
                                "django.core.context_processors.csrf",
                                )
-
-
-
