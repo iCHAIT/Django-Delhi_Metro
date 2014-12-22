@@ -1,1 +1,1 @@
-web: gunicorn mymtero.wsgi --log-file -
+web: gunicorn mymtero.mymtero.wsgi --log-file -
