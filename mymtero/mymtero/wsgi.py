@@ -20,6 +20,3 @@ try:
     application = Cling(get_wsgi_application())
 except:
     pass
-
-import django.core.handlers.wsgi
-application = django.core.handlers.wsgi.WSGIHandler()
