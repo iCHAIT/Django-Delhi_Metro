@@ -1,2 +1,1 @@
-web: python manage.py run_gunicorn
-
+web: gunicorn mymtero.wsgi --log-file -
