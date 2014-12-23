@@ -54,10 +54,6 @@ The data has been loaded into the tables using the following query -
 mysql>load data local infile 'absolutepath' into table table_name;
 
 
-Deployed via Heroku
-===================
-
-https://delhi-metro.herokuapp.com
 
 
 
