@@ -4,7 +4,8 @@ Django-Delhi_Metro
 Delhi Metro Management system website powered by the Django framwork and MySQL as the database. 
 
 
-## Requirements
+Requirements
+============
 
 Python 2.7
 
@@ -15,7 +16,8 @@ MySQL
 MySQLDB
 
 
-## Build instructions:
+Build instructions
+===================
 
 1. cd to django_metro (Project folder)
 
@@ -24,18 +26,6 @@ MySQLDB
 3. cd mymtero
 
 4. python manage.py runserver
-
-
-Note
-====
-
-Virtualenv has been used for this project.
-
-The project is running on Django version 1.6.5 !!
-
-The data has been loaded into the tables using the following query -
-
-mysql>load data local infile 'absolutepath' into table table_name;
 
 
 Tables
@@ -52,8 +42,22 @@ Tables
 -> metro_review handled by the admin side.
 
 
+Note
+====
+
+Virtualenv has been used for this project.
+
+The project is running on Django version 1.6.5 !!
+
+The data has been loaded into the tables using the following query -
+
+mysql>load data local infile 'absolutepath' into table table_name;
 
 
+Deployed via Heroku
+===================
+
+https://delhi-metro.herokuapp.com
 
 
 

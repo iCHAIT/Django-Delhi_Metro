@@ -1,3 +1,4 @@
+
 drop database hello;
 create database hello;
 use hello;
@@ -20,7 +21,7 @@ load data local infile '/Users/chaitanyagupta/Desktop/stationinfo.txt' into tabl
 
 
 create table h_places		(
-				pid  int primary key auto_increment,
+				pid  int primary key,
 				sname varchar(50),
 				place varchar(75)
 				);
@@ -36,7 +37,7 @@ create table hello_places	(
 
 
 load data local infile '/Users/chaitanyagupta/Desktop/places.txt' into table h_places;
-insert into hello_places (select b.sid,pid,a.sname,place from h_places as a ,hello_stationinfo as b where a.sname=b.sname);
+insert into hello_places (select pid,a.sname,place,b.sid from h_places as a ,hello_stationinfo as b where a.sname=b.sname);
 drop table h_places;
 
 
@@ -52,14 +53,14 @@ create table hello_paths	(
 load data local infile '/Users/chaitanyagupta/Desktop/path.txt' into table hello_paths;
 
 
-create table h_stations		(
+create table h_station	(
 				sno int primary key auto_increment,
 				sname varchar (50),
 				line varchar(15),
 				grade varchar(15)
 				);
 
-create table hello_stations	(
+create table hello_station	(
 				sid int,
 				sno int primary key auto_increment,
 				sname varchar (50),
@@ -68,8 +69,8 @@ create table hello_stations	(
 				foreign key(sid) references hello_stationinfo(sid) on update cascade on delete cascade
 				);
 
-load data local infile '/Users/chaitanyagupta/Desktop/stations.txt' into table h_stations;
-insert into hello_stations (select b.sid,sno,a.sname,line,grade from h_stations as a ,hello_stationinfo as b where a.sname=b.sname);
+load data local infile '/Users/chaitanyagupta/Desktop/station.txt' into table h_station;
+insert into hello_station (select sno,a.sname,line,grade,b.sid from h_station as a ,hello_stationinfo as b where a.sname=b.sname);
 drop table h_stations;
 
 
