@@ -1,1 +1,0 @@
-web: gunicorn mtero.wsgi --log-file -
