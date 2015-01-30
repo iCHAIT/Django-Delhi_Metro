@@ -1,39 +1,3 @@
-DROP PROCEDURE add_station;
-DELIMITER |
-CREATE PROCEDURE add_station ( in old_sname varchar(50), in new_sname varchar(50),in new_washroom varchar(5),in new_parking varchar(5),
-in new_elevator varchar(5),in new_opening_date date, in new_contact bigint,in new_pincode int,in new_cost int, in new_line varchar(15),
-in new_grade varchar(15))
-BEGIN
-    DECLARE old_sid,new_sid int;
-    DECLARE s1 ,s2 varchar(50);
-
-      SET s1 = ( SELECT DISTINCT sname FROM metro_stations WHERE sname=old_sname ); 
-      SET s2 = ( SELECT DISTINCT sname FROM metro_stations WHERE sname=old_sname and line=new_line);
-      
-
-    IF s1 IS NULL THEN 
-        SELECT CONCAT('Station ', old_sname, ' not found.');
-	ELSE
-		BEGIN
-		IF s1 IS NOT NULL and S2 is NULL THEN
-			SET old_sid= (SELECT sid from metro_facility where sname=old_sname);
-			INSERT INTO metro_stations(sid,sname,line,grade) VALUES (old_sid,old_sname,new_line,new_grade);
-			
-		END IF;	
-			INSERT INTO metro_facility(sname,washroom,parking,elevator,opening_date,contact,pincode,cost,pathid,calculated)
-			VALUES (new_sname,new_washroom,new_parking,new_elevator,new_opening_date,new_contact,new_pincode,new_cost,NULL,NULL);
-			SELECT sid from metro_facility where sname=new_sname into new_sid;
-			INSERT INTO metro_stations(sid,sname,line,grade) VALUES (new_sid,new_sname,new_line,new_grade);
-			SET old_sid=(SELECT sid from metro_facility where sname=old_sname);
-			INSERT INTO metro_paths(tosid,fromsid,cost) values(new_sid,old_sid,new_cost);
-			INSERT INTO metro_paths(tosid,fromsid,cost) values(old_sid,new_sid,new_cost);
-		END;
-	END IF;
-END;
-|
-DELIMITER ;
-
-
 
 drop procedure find_path;
 DELIMITER | 
