@@ -1,9 +1,9 @@
 """
     Django settings for mymtero project.
-    
+
     For more information on this file, see
     https://docs.djangoproject.com/en/1.6/topics/settings/
-    
+
     For the full list of settings and their values, see
     https://docs.djangoproject.com/en/1.6/ref/settings/
     """
@@ -39,10 +39,10 @@ INSTALLED_APPS = (
                   'metro',
                   'django.contrib.admin',
                   'django.contrib.admindocs',
-                  
-                  
-                  
-                  
+
+
+
+
                   )
 
 MIDDLEWARE_CLASSES = (
@@ -57,7 +57,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'mymtero.urls'
 
 TEMPLATE_DIRS = {
-    
+
     "metro/templates",
 
 }
@@ -73,12 +73,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'metrod',
         'USER': 'root',
-        'PASSWORD': 'adityagupta',
+        'PASSWORD': 'xxxxxx',  # Password of the database used.
         'HOST': '',
         'PORT': '',
-        
-        
-        
+
+
+
         }
 }
 
@@ -105,19 +105,19 @@ STATIC_URL = '/static/'
 
 
 STATICFILES_DIRS = (
-                    
+
                     "metro/static",
-                    
-                    
+
+
                     )
 
 
 STATICFILES_FINDERS = (
-                       
+
                        'django.contrib.staticfiles.finders.FileSystemFinder',
                        'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-                       
-                       
+
+
                        )
 
 
