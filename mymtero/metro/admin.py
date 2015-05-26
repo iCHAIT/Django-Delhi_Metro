@@ -11,13 +11,12 @@ from metro.models import path
 from metro.models import review
 
 
-
 class stationinfoAdmin(admin.ModelAdmin):
-    list_display = ('sname','washroom','parking','elevator','opening_date','contact','pincode')
+    list_display = ('sname', 'washroom', 'parking', 'elevator',
+                    'opening_date', 'contact', 'pincode')
     search_fields = ('sname',)
-    exclude = ('cost','pathid','calculated')
+    exclude = ('cost', 'pathid', 'calculated')
     list_filter = ('sname', 'pincode')
-
 
 
 class stationAdmin(admin.ModelAdmin):
@@ -33,17 +32,17 @@ class placesAdmin(admin.ModelAdmin):
     exclude = ('sid',)
     list_filter = ('sname',)
 
+
 class pathAdmin(admin.ModelAdmin):
     list_display = ('fromsid', 'tosid')
     search_fields = ('pathid',)
     list_filter = ('pathid',)
 
+
 class reviewAdmin(admin.ModelAdmin):
     list_display = ('sname', 'author', 'timest')
     search_fields = ('sname',)
     list_filter = ('sname',)
-
-
 
 
 # Register your models here.
@@ -57,4 +56,3 @@ admin.site.register(places, placesAdmin)
 admin.site.register(path, pathAdmin)
 
 admin.site.register(review, reviewAdmin)
-
