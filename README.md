@@ -5,13 +5,13 @@ Delhi Metro Management system website powered by the Django framwork and MySQL a
 
 #### Requirements
 
-Python 2.7
+* Python 2.7
 
-Django
+* Django
 
-MySQL
+* MySQL
 
-MySQLDB
+* MySQLDB
 
 
 #### Build instructions
@@ -25,7 +25,7 @@ MySQLDB
 4. python manage.py runserver
 
 
-#### Tables
+#### Database Tables
 
 * metro_stationinfo corresponds to stationinfo.txt.
 
@@ -38,12 +38,12 @@ MySQLDB
 * metro_review handled by the admin side.
 
 
-#### Note
+#### Notes
 
-Virtualenv has been used for this project.
+* Virtualenv has been used for this project.
 
-The project is running on Django version 1.6.5 !!
+* The project is running on Django version 1.6.5 !!
 
-The data has been loaded into the tables using the following query -
+* The data has been loaded into the tables using the following query -
 
 mysql>load data local infile 'absolutepath' into table table_name;
